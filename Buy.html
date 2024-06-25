@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="logo2.jpg">
+<style>
+  hr {
+  opacity: 0.5;
+}
+  .container {
+            display: grid;
+            grid-template-columns: 15% 85%;
+            height: 100vh;
+        }
+
+        .chat-list {
+            background-color:rgb(216, 255, 247);
+            overflow-y: auto; 
+        }
+
+        .chat-area {
+            background-color: #ffffff;
+            overflow-y: auto; 
+        }
+        a{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+        h1{
+            color: rgb(252, 44, 44);
+            text-align: center;
+            animation-duration: 2s;
+            animation-name: fadein;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes fadein {
+            0% {
+                    opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        ul{
+            list-style: square;
+        }
+        .sel{
+            color: rgb(55, 0, 255);
+        }
+        @keyframes flash {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .buy {
+            animation-name: flash;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            float: right;
+            color: blueviolet;
+        }
+        h3{
+            color: rgb(224, 205, 26);
+            text-shadow: black;
+        }
+        .inc{
+            list-style: circle;
+        }
+  table {
+    border-collapse: collapse; 
+  }
+  th, td {
+    border: 1px solid black; 
+    padding: 5px;
+  }
+  input {
+    width: 35px; 
+  }
+button {
+  background-color: #c2fbd7;
+  border-radius: 100px;
+  box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset,rgba(44, 187, 99, .15) 0 1px 2px,rgba(44, 187, 99, .15) 0 2px 4px,rgba(44, 187, 99, .15) 0 4px 8px,rgba(44, 187, 99, .15) 0 8px 16px,rgba(44, 187, 99, .15) 0 16px 32px;
+  color: green;
+  cursor: pointer;
+  display: inline-block;
+  font-family: CerebriSans-Regular,-apple-system,system-ui,Roboto,sans-serif;
+  padding: 7px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 250ms;
+  border: 0;
+  font-size: 16px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  box-shadow: rgba(44,187,99,.35) 0 -25px 18px -14px inset,rgba(44,187,99,.25) 0 1px 2px,rgba(44,187,99,.25) 0 2px 4px,rgba(44,187,99,.25) 0 4px 8px,rgba(44,187,99,.25) 0 8px 16px,rgba(44,187,99,.25) 0 16px 32px;
+  transform: scale(1.05) rotate(-1deg);
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+#customers:hover {
+  background-color: #f1f1f1;
+}
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+#myInput{
+  width: 300px; 
+}
+.highlight {
+      color:#04AA6D; 
+    }
+
+</style>
+<title>Order Now-QP</title>
+</head>
+<body>
+  <h2>Welcome <span class="highlight">Healing Hands</span></h2>
+  <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Medicines.." title="Type in a name">
+  <br><br>
+<table id="customers">
+  <tr>
+    <th>Item</th>
+    <th>Value</th>
+    <th>Unit(s)</th>
+    <th>Medicine Type</th>
+    <th>Contents</th>
+  </tr>
+  <tr>
+    <td>NEUROGEN-TAB</td>
+    <td><input type="number" id="neu" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Food Suplement</td> <td>Methylcobalamin - 500mcg</td>
+  </tr>
+  <tr>
+    <td>BALIN-M CAPS</td>
+    <td><input type="number" id="bal" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Food Suplement</td> <td>Pregabalin 75mg<br>Methylcobalamin 750mcg</td>
+  </tr>
+  <tr>
+    <td>REDISH-FORTE-SOFTGELS</td>
+    <td><input type="number" id="red" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Food Suplement</td> <td>Lycopene 4000mcg<br>Lutein 4000mcg<br>Beta Carotene 10mg<br>Grape Seed Extract 10mg<br>Selenium 25mcg<br>Mangenese Sulphate 2mg Zinc Sulphate 10mg</td>
+  </tr>
+  <tr>
+    <td>BEELEX-TAB</td>
+    <td><input type="number" id="bee" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Food Suplement</td> <td>Multi Vitamins <br>Multiminerals & Anti-Oxidant with Biotin<br>Methylcobalamin Lycopene<br>L-Glutamic Acid</td>
+  </tr>
+  <tr>
+    <td>CALVIT-TAB</td>
+    <td><input type="number" id="cal" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Food Suplement</td> <td>Calcium Carbonate I.P. Eq. to Elemental Calcium 500mg Vit. D3 I.P. 400 I.U</td>
+  </tr>
+  <tr>
+    <td>ONLI-D3-NANO ORAL-SOLUTION</td>
+    <td><input type="number" id="onli" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Food Suplement</td> <td>Cholecalciferol 60000 IU Sweet Raspberry Flavour</td>
+  </tr>
+  <tr>
+    <td>H.B INN</td>
+    <td><input type="number" id="hb" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Food Suplement</td> <td>Ferrous Bisglycinate 60 mg <br>Zinc Bisglycinate 15 mg <br>Methylcobalamin 500 mcg <br>Folic Acid 1 mg Tablets</td>
+  </tr>
+  <tr>
+    <td>Q MONT-TAB</td>
+    <td><input type="number" id="qmont" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Histamine</td> <td>Montelukast Sodium I.P. 10mg <br>Levocetirizine <br>Dihydrochloride I.P. 5mg</td>
+  </tr>
+  
+  <tr>
+    <td>LEECET-TAB</td>
+    <td><input type="number" id="lee" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Histamine</td> <td>Levocetirizine <br>Dihydrochloride B.P 5mg</td>
+  </tr>
+  
+  <tr>
+    <td>BROCET-TAB</td>
+    <td><input type="number" id="broc" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Histamine</td> <td>Ambroxol Hydrochloride I.P. 30mg<br>Cetirizine Dihydrochloride I.P. 2.5mg <br>Menthol I.P. 1mg</td>
+  </tr>
+  <tr>
+    <td>EPHIDEX-TAB</td>
+    <td><input type="number" id="eppiii" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Histamine</td> <td>Dextromethorphan HBr 10mg<br>Phenylephrine Hydrochloride 5mg<br>Chlorpheniramine Maleate 2mg</td>
+  </tr>
+  <tr>
+    <td>RHINEX-TAB</td>
+    <td><input type="number" id="rhin" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Histamine</td> <td>Paracetamol I.P. 500mg<br>Phenylephrine Hydrochloride I.P. 5mg<br>Caffeine (anhydrous) I.P. 30mg Diphenhydramine<br>Hydrochloride I.P. 25mg</td>
+  </tr>
+  <tr>
+    <td>ACIS-P-TAB</td>
+    <td><input type="number" id="ap" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Pain Killers</td> <td>Aceclofenac I.P 100mg<br>Paracetamol I.P 325mg</td>
+  </tr>
+  <tr>
+    <td>ACIS-SP-TAB</td>
+    <td><input type="number" id="asp" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Pain Killers</td> <td>Aceclofenac I.P 100mg<br>Paracetamol I.P 325mg<br>Serratiopeptidase I.P 15mg</td>
+  </tr>
+  <tr>
+    <td>Q DASE-TAB</td>
+    <td><input type="number" id="qda" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Pain Killers</td> <td>Diclofenac Potassium B.P. 50mg<br>Serratiopeptidase 10mg</td>
+  </tr>
+  <tr>
+    <td>CYTIN-TP TABS</td>
+    <td><input type="number" id="ctb" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Pain Killers</td> <td>Aceclofenac 100mg<br>Paracetamol 500mg<br>Thiocolchicoside 4mg</td>
+  </tr>
+  <tr>
+    <td>CYTIN-MR TABS</td>
+    <td><input type="number" id="ctm" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Pain Killers</td> <td>Aceclofenac 100mg<br>Paracetamol 325mg<br>Chlorzoxazone 250mg</td>
+  </tr>
+  <tr>
+    <td>MANAGE-500-ТАВ</td>
+    <td><input type="number" id="m5" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Diabetics</td> <td>Metformin Hydrochloride I.P. (S.R) 500mg</td>
+  </tr>
+  <tr>
+    <td>MANAGE-G2-TAB</td>
+    <td><input type="number" id="mgg" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Diabetics</td> <td>Glimepride(S.R) 2mg<br>Metformin Hydrochl. I.P. (S.R) 500mg</td>
+  </tr>
+  <tr>
+    <td>Q-TEL 20-TAB</td>
+    <td><input type="number" id="qt20" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Hypertensive</td> <td>Telmisartan I.P. 20mg</td>
+  </tr>
+  <tr>
+    <td>Q-TEL 40-TAB</td>
+    <td><input type="number" id="qt40" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Hypertensive</td> <td>Telmisartan I.P. 40mg</td>
+  </tr>
+  <tr>
+    <td>SOLVER-10-TAB</td>
+    <td><input type="number" id="sol10" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Hypertensive</td> <td>Atorvastatin I.P. 10mg</td>
+  </tr>
+  <tr>
+    <td>ONUS-AT-TABS</td>
+    <td><input type="number" id="onu" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Hypertensive</td> <td>Amlodipine 5mg<br>Atenolol 50mg</td>
+  </tr>
+  <tr>
+    <td>OX 200-TAB</td>
+    <td><input type="number" id="ox2" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Biotics</td> <td>Ofloxacin I.P. 200mg</td>
+  </tr>
+  <tr>
+    <td>OX-OZ-TAB</td>
+    <td><input type="number" id="oxz" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Biotics</td> <td>Ofloxacin I.P. 200mg</td>
+  </tr>
+  <tr>
+    <td>PANCUTE-ТАВ</td>
+    <td><input type="number" id="panc" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Ulcerants</td> <td>Pantoprazole 40mg</td>
+  </tr>
+  <tr>
+    <td>PANCUTE-DSR</td>
+    <td><input type="number" id="pdsr" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Ulcerants</td> <td>Pantoprazole 40mg <br>Domperidome 30mg[SR]</td>
+  </tr>
+  <tr>
+    <td>ONLISET-MD-4-TABS</td>
+    <td><input type="number" id="md4t" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Anti - Ulcerants</td> <td>Ondansetron 4mg <br>(Mouth Dissolving)</td>
+  </tr>
+  <tr>
+    <td>Q-DINE</td>
+    <td><input type="number" id="extra" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Ointments & Cream</td> <td>Metronidazole 1% w/w <br>Povidone lodine 5% w/w <br>Aloe vera 1.5% w/w</td>
+  </tr>
+  <tr>
+    <td>PAVE-GM-CREAM</td>
+    <td><input type="number" id="pgmm" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Ointments & Cream</td> <td>Clobetasol 0.05%<br>Miconazole 2.0%<br>Neomycin 0.5%</td>
+  </tr>
+  <tr>
+    <td>TERN-FORTE- OINTMENT</td>
+    <td><input type="number" id="tfoo" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Ointments & Cream</td> <td>Ofloxacin 0.75%<br>Terbinafine 1.0%<br>Clobetasol 0.05%</td>
+  </tr>
+  <tr>
+    <td>MUPILINE-OINTMENT</td>
+    <td><input type="number" id="mupu" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Ointments & Cream</td> <td>Mupirocin 2%</td>
+  </tr>
+  <tr>
+    <td>ONIFLO-GEL</td>
+    <td><input type="number" id="jala" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Ointments & Cream</td> <td>Diclofenac Diethylamine 1.16%
+
+      <br>Oleum Lin 3%
+      
+      <br>Methyl Salicylate 10%
+      
+      <br>Menthol 5%</td>
+  </tr>
+  <tr>
+    <td>ONIFLO-AQUA-INJECTION</td>
+    <td><input type="number" id="oosi1" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Injectables</td> <td>Diclofenac Sodium 75mg/m</td>
+  </tr>
+  <tr>
+    <td>HIVIT 12 PLUS - 2ml</td>
+    <td><input type="number" id="oosi2" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Injectables</td> <td>Methylcobalamin 1000 mcg<br>Niacinamide 100 mg<br>Pyridoxine Hydrochloride 100 mg</td>
+  </tr>
+  <tr>
+    <td>SERRAQ-TAB</td>
+    <td><input type="number" id="serra" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Other Products</td> <td>Serratiopeptidase 10mg</td>
+  </tr>
+  <tr>
+    <td>ONLI-ORS-POWDER</td>
+    <td><input type="number" id="podi" size="1" value="0"></td>
+    <td>Box(s)</td> <td>Other Products</td> <td>Sodium Chloride 2.6gm
+
+      <br>Potassium Chloride 1.5gm
+      
+      <br>Sodium Citrate 2.9gm
+      
+      <br>Dextrose 13.5gm/21gm</td>
+  </tr>
+</table>
+<br><button onclick="placeOrder()" align="middle">Place Order On Whatsapp</button>
+
+<script>
+  function placeOrder() {
+    let message = 'I would like to order the following products:\n';
+    let products = [
+  { id: 'neu', name: 'NEUROGEN-TAB', unit: 'Box(s)' },
+  { id: 'bal', name: 'BALIN-M CAPS', unit: 'Box(s)' },
+  { id: 'red', name: 'REDISH-FORTE-SOFTGELS', unit: 'Box(s)' },
+  { id: 'bee', name: 'BEELEX-TAB', unit: 'Box(s)' },
+  { id: 'cal', name: 'CALVIT-TAB', unit: 'Box(s)' },
+  { id: 'onli', name: 'ONLI-D3-NANO ORAL-SOLUTION', unit: 'Box(s)' },
+  { id: 'hb', name: 'H.B INN', unit: 'Box(s)' },
+  { id: 'qmont', name: 'Q MONT-TAB', unit: 'Box(s)' },
+  { id: 'lee', name: 'LEECET-TAB', unit: 'Box(s)' },
+  { id: 'broc', name: 'BROCET-TAB', unit: 'Box(s)' },
+  { id: 'eppiii', name: 'EPHIDEX-TAB', unit: 'Box(s)' },
+  { id: 'rhin', name: 'RHINEX-TAB', unit: 'Box(s)' },
+  { id: 'ap', name: 'ACIS-P-TAB', unit: 'Box(s)' },
+  { id: 'asp', name: 'ACIS-SP-TAB', unit: 'Box(s)' },
+  { id: 'qda', name: 'Q DASE-TAB', unit: 'Box(s)' },
+  { id: 'ctb', name: 'CYTIN-TP TABS', unit: 'Box(s)' },
+  { id: 'ctm', name: 'CYTIN-MR TABS', unit: 'Box(s)' },
+  { id: 'm5', name: 'MANAGE-500-TAB', unit: 'Box(s)' },
+  { id: 'mgg', name: 'MANAGE-G2-TAB', unit: 'Box(s)' },
+  { id: 'qt20', name: 'Q-TEL 20-TAB', unit: 'Box(s)' },
+  { id: 'qt40', name: 'Q-TEL 40-TAB', unit: 'Box(s)' },
+  { id: 'sol10', name: 'SOLVER-10-TAB', unit: 'Box(s)' },
+  { id: 'onu', name: 'ONUS-AT-TABS', unit: 'Box(s)' },
+  { id: 'ox2', name: 'OX 200-TAB', unit: 'Box(s)' },
+  { id: 'oxz', name: 'OX-OZ-TAB', unit: 'Box(s)' },
+  { id: 'panc', name: 'PANCUTE-TAB', unit: 'Box(s)' },
+  { id: 'pdsr', name: 'PANCUTE-DSR', unit: 'Box(s)' },
+  { id: 'md4t', name: 'ONLISET-MD-4-TABS', unit: 'Box(s)' },
+  { id: 'extra', name: 'Q-DINE', unit: 'Box(s)' },
+  { id: 'pgmm', name: 'PAVE-GM-CREAM', unit: 'Box(s)' },
+  { id: 'tfoo', name: 'TERN-FORTE-OINTMENT', unit: 'Tube(s)' },
+  { id: 'mupu', name: 'MUPILINE-OINTMENT', unit: 'Tube(s)' },
+  { id: 'jala', name: 'ONIFLO-GEL', unit: 'Tube(s)' },
+  { id: 'oosi1', name: 'ONIFLO-AQUA-INJECTION', unit: 'Vial(s)' },
+  { id: 'oosi2', name: 'HIVIT 12 PLUS - 2ml', unit: 'Vial(s)' },
+  { id: 'serra', name: 'SERRAQ-TAB', unit: 'Box(s)' },
+  { id: 'podi', name: 'ONLI-ORS-POWDER', unit: 'Box(s)' }
+];
+
+
+    products.forEach(product => {
+      let value = document.getElementById(product.id).value;
+      if (value > 0) {
+        message += `${product.name} ${value} ${product.unit}\n`;
+      }
+    });
+
+    if (message !== 'I would like to order the following products:\n') {
+      let encodedMessage = encodeURIComponent(message);
+      let whatsappLink = `https://wa.me/+919944007373/?text=${encodedMessage}`;
+      window.open(whatsappLink, '_blank');
+    } else {
+      alert('Please enter a value greater than 0 for at least one product.');
+    }
+  }
+  function myFunction() {
+  var input, filter, table, tr, td, i, txtValue;
+  input = document.getElementById("myInput");
+  filter = input.value.toUpperCase();
+  table = document.getElementById("customers");
+  tr = table.getElementsByTagName("tr");
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[0];
+    if (td) {
+      txtValue = td.textContent || td.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }       
+  }
+}
+</script>
+
+</body>
+</html>

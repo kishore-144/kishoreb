@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <link rel="shortcut icon" type="image/x-icon" href="logo2.jpg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+     
+        hr {
+  opacity: 0.5;
+}
+body{
+    padding: 0;
+    margin: 0;
+}
+section{
+    display: grid;
+    place-items: center;
+}
+.hidden{
+    opacity:0;
+    filter: blur(5px);
+    transform: translateX(-100%);
+    transition: all 2.5s;
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+}
+
+        .container {
+            display: grid;
+            grid-template-columns: 15% 85%;
+            height: 100vh;
+        }
+
+        .chat-list {
+            background-color:rgb(216, 255, 247);
+            overflow-y: auto; 
+        }
+
+        .chat-area {
+            background-color: #ffffff;
+            overflow-y: auto; 
+        }
+        a{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+        h1{
+            color: rgb(252, 44, 44);
+            text-align: center;
+            animation-duration: 2s;
+            animation-name: fadein;
+            animation-timing-function: ease-in-out;
+        }
+        @keyframes fadein {
+            0% {
+                    opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        ul{
+            list-style: square;
+        }
+        .sel{
+            color: rgb(55, 0, 255);
+        }
+        @keyframes flash {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        .buy {
+            animation-name: flash;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            float: right;
+            color: blueviolet;
+        }
+        h3{
+            color: rgb(224, 205, 26);
+            text-shadow: black;
+        }
+        .inc{
+            list-style: circle;
+        }
+        .summm{
+            text;
+        }
+        .lics{
+            float: right;
+        }
+        .chat-area {
+  background-image: url('logo.jpg');
+  background-size: cover;
+}
+
+
+    </style>
+    <title>Quench Pharma</title>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-list" >
+            <ul>
+                <li><a href="QP.html" onclick="loadChat('index.html')" class="sel">HOME</a></li>
+                <li><a href="prod.html" onclick="loadChat('prod.html')">PRODUCTS</a></li>
+                <li><a href="contact.html" onclick="loadChat('contact.html')">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="chat-area">
+            <marquee behavior="scroll" direction="left">Our 18-year legacy reflects a commitment to innovation and exceeding expectations. This unwavering focus has resulted in a multitude of achievements and solidified our position as a leading expert in the field.</marquee>
+            <h1 style="font-size: 36px;">Quench Pharma</h1>
+            <section class="hidden"><div class="slide-right">
+            <a href="Buy.html" class="buy">ORDER NOW</a>
+            <h3>OUR MOTO: "Your Health , Our Commitment"</h3>
+            <ul class="inc">
+                <li>At Quench Pharma, we are dedicated to empowering healthcare providers with the essential medicines they need to deliver exceptional patient care. For over 18 years, we have been a trusted partner to doctors and medical professionals, supplying a comprehensive range of high-quality pharmaceuticals. Our commitment to innovation and reliable distribution ensures timely access to vital medications, allowing healthcare providers to focus on what matters most - their patients' well-being.</li>
+            </ul>
+            <a class="lics" href="hii.pdf"><img src="lic.jpeg" alt="License" width="20" height="20"><p style="font-size: 8px;">Licensed</p></a>
+        </div></section><br>
+            <hr>
+            <section class="hidden"><div>
+            <h3>Unwavering Commitment to Quality,</h3>
+            <ul class="inc">
+                <li>At Quench Pharma, we prioritize patient well-being above all else. This commitment translates into the unwavering quality standards we uphold for every medication we supply. We source our pharmaceuticals from trusted manufacturers with a proven track record of excellence. Our rigorous quality control procedures ensure that every product meets the highest industry standards for purity, potency, and safety. We are committed to providing healthcare providers with the confidence they need to prescribe our medications, knowing they are delivering the most effective and reliable treatments to their patients.</li>
+            </ul></div></section>
+            <hr><section class="hidden"><div class="slide-right">
+            <h3>We Provide,</h3>
+            <ul class="inc">
+                <li><b>Essential Medications:</b> We provide essential medications for various conditions, including pain management (pain killers), diabetes management (anti-diabetics), and hypertension control (anti-hypertensives).</li>
+                <li><b>Targeted Treatments:</b> We offer targeted treatments like antihistamines for allergies, antibiotics to fight infections, and anti-ulcerants for digestive health.</li>
+                <li><b>Topical Solutions:</b> We supply a range of ointments and creams for various topical applications.</li>
+                <li><b>Injectable Medications:</b> We also provide injectable medications for specific treatment needs.</li>
+                <p>Our rigorous quality control procedures ensure that every product, from food supplements to injectables, meets the highest industry standards for purity, potency, and safety. We are committed to providing healthcare providers with the confidence they need to prescribe our medications, knowing they are delivering the most effective and reliable treatments to their patients.</p>
+            </ul></div></section>
+            <hr><Section class="hidden"><div>
+            <h3>We are at,</h3>
+            <ul class="inc">
+                <p>Quench Pharma is a reliable partner for healthcare providers across South India. With our headquarters in Chennai, we efficiently distribute high-quality medicines to medical professionals in both Chennai and Tirunelveli.</p>
+                <li>Chennai: <br><address>Administration Office: <br>
+                    QUENCH PHARMA, <br>
+                    Flat AS1,Marutham Heritage flats, <br>
+                    Manimangalam Main Road,<br>
+                    Tambaram west,<br>
+                    Varadharaja puram, Chennai 600048. <br></address></li>
+                    <li>Tirunelveli: <br><address>Ware House: <br>
+                        QUENCH PHARMA, <br>
+                        NO.60A, UPSTAIRS, <br>
+                        FIRST FLOOR, STAR COMPLEX, <br>
+                        PERUMAL WEST CAR STREET, <br>
+                        TIRUNELVELI JUNCTION-627 001.<br></address></li>
+                    
+            </ul></div></Section>
+            
+        </div>
+    </div>
+    
+    <script>
+        const observer=new IntersectionObserver((entries)=>{
+            entries.forEach((entry)=>{
+                console.log(entry);
+                if(entry.isIntersecting){
+                    entry.target.classList.add('show');
+                }
+                else{
+                    entry.target.classList.remove('show');
+                }
+            }
+        );
+        }
+    );
+        const hiddenElements=document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el)=>observer.observe(el));
+        function loadChat(chatFile) {
+            fetch(chatFile)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('chatArea').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading chat content:', error));
+        }
+    </script>
+</body>
+</html>

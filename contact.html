@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="logo2.jpg">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        hr {
+  opacity: 0.5;
+}
+        .container {
+            display: grid;
+            grid-template-columns: 15% 70%; /* Define column widths */
+            height: 100vh; /* 100% viewport height */
+        }
+
+        .chat-list {
+            background-color:rgb(216, 255, 247);
+            overflow-y: auto; /* Enable scrolling if the chat list overflows */
+        }
+
+        .chat-area {
+            background-color: #ffffff;
+            overflow-y: auto; /* Enable scrolling if the chat area overflows */
+        }
+        a{
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+        }
+        h1{
+            color: rgb(252, 44, 44);
+            text-align: center;
+            animation-duration: 2s;
+            animation-name: slidein;
+        }
+        @keyframes slidein {
+            from{
+                margin-left:100%;
+            }
+            to{
+                margin-left: 0%;
+            }
+        }
+        ul{
+            list-style: square;
+        }
+        
+        .sel{
+            color: rgb(55, 0, 255);
+        }
+    </style>
+    <title>Contact</title>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-list" >
+            <ul>
+                <li><a href="QP.html" onclick="loadChat('index.html')">HOME</a></li>
+                <li><a href="prod.html" onclick="loadChat('prod.html')">PRODUCTS</a></li>
+                <li><a href="contact.html" onclick="loadChat('contact.html')" class="sel">CONTACT</a></li>
+            </ul>
+        </div>
+        <div class="chat-area">
+            <p>GMail-<a href="https://mailto=quenchpharma@gmail.com">quenchpharma@gmail.com</a></p>
+            <p>Phone-<Phone->9944007373</Phone-></p>
+            <p>Whatsapp-<a href="https://wa.me/+919944007373" class="sel">Click To Chat</a></p>
+        </div>
+    </div>
+    
+    <script>
+        function loadChat(chatFile) {
+            // Use JavaScript to load and display the selected chat content
+            fetch(chatFile)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('chatArea').innerHTML = data;
+                })
+                .catch(error => console.error('Error loading chat content:', error));
+        }
+    </script>
+</body>
+</html>

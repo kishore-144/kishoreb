@@ -299,6 +299,7 @@ nav .fass{
         background-image:url("kk1.jpg");
     }
     .header-text{
+        top:77%;
         margin-top: 100%;
         font-size: 16px;
     }

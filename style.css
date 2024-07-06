@@ -298,8 +298,8 @@ nav .fass{
     #header{
         background-image:url("kk1.jpg");
     }
-    .header-text{
-        top:77%;
+    .header-text{position: absolute;
+    top: 75%;
         font-size: 16px;
     }
     .header-text h1{

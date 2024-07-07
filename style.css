@@ -309,7 +309,7 @@ nav ul li a:hover::after{
 #heyloos{
     text-decoration: none;
     color: #fff;
-    transition:  transform 0.5s linear;
+    transition:  transform 0.3s linear;
 }
 #heyloos:hover{
     transform: scale(1.1);

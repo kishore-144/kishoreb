@@ -306,6 +306,15 @@ nav ul li a:hover::after{
     color: #fff; /* Change text color on hover */
 }
 
+#heyloos{
+    text-decoration: none;
+    color: #fff;
+    transition:  transform 0.5s linear;
+}
+#heyloos:hover{
+    transform: scale(1.1);
+}
+
 
 
 

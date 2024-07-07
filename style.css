@@ -286,6 +286,25 @@ nav ul li a:hover::after{
     text-align: center;
     align-items: center;
 }
+.hahaha{
+    display: flex;
+    background-color:rgb(67, 134, 123);
+    text-decoration: none;
+    color: #fff;
+    float: right; 
+    position: relative; 
+    height: 25px; 
+    width: 130px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+.hahaha:hover {
+    background-color: #ff004f; /* Change to a different color on hover */
+    color: #fff; /* Change text color on hover */
+}
 
 
 

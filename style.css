@@ -305,7 +305,6 @@ nav ul li a:hover::after{
     background-color: #ff004f; /* Change to a different color on hover */
     color: #fff; /* Change text color on hover */
 }
-
 #heyloos{
     text-decoration: none;
     color: #fff;
@@ -313,6 +312,14 @@ nav ul li a:hover::after{
 }
 #heyloos:hover{
     transform: scale(1.1);
+}
+#heyloose{
+    text-decoration: none;
+    color: #fff;
+    transition:  transform 0.3s linear;
+}
+#heyloose:hover{
+    transform: scale(1.5);
 }
 
 

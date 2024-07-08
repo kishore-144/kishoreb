@@ -27,7 +27,7 @@
             </nav>
             <div class="header-text">
                 <p>B.Tech CSE</p>
-                <h1>Hi, I'm <span>Kishore</span> <br>From India</h1>
+                <h1>Hi, I'm <span>Kishore</span> <br>Front End Developer</h1>
             </div>
         </div>
     </div>
@@ -79,17 +79,17 @@
                     <div>
                         <h2>PharmaWeb Development</h2>
                         <p>Developed a comprehensive website for a pharmaceutical company, featuring a home page, detailed product menu, and contact page with intuitive links.</p>
-                        <a href="QP.html">Visit Web</a>
+                        <a id="heyloos" href="QP.html">Visit Web</a>
                     </div>
                     <div>
                         <h2>Streamlined Ordering</h2>
                         <p>Help users to a dynamic order page where they can select product quantities and units. Implemented a seamless ordering process with JavaScript, allowing orders via WhatsApp by auto-generating a message with selected items.</p>
-                        <a href="Buy.html">Visit Web</a>
+                        <a id="heyloos" href="Buy.html">Visit Web</a>
                     </div>
                     <div>
                         <h2>Human Monkeypox Detection Using ML</h2>
                         <p>I successfully spearheaded a project to detect monkeypox using the advanced YOLOv(You Only Look Once) machine learning algorithm. We achieved an impressive accuracy rate of nearly 95%, surpassing existing benchmarks</p>
-                        <a href="https://wa.me/+919345274914/?text=How$20you$20did$20that$20ml$20project">Enquire?</a>
+                        <a id="heyloos" href="https://wa.me/+919345274914/?text=How$20you$20did$20that$20ml$20project">Enquire?</a>
                     </div>
 
 
@@ -105,7 +105,7 @@
                         <img src="c1.jpg">
                         <div class="layer">
                             <h3>Web Development</h3>
-                            <p>Successfully completed a task related intern in prodigy.</p>
+                            <p>Successfully completed a task related intern in prodigy.</p><br>
                             <a id="heyloos" href="c1.pdf">View Certificate</a>
                         </div>
                     </div>
@@ -113,7 +113,7 @@
                         <img src="c2.jpg">
                         <div class="layer">
                             <h3>Complete Python From Scratch</h3>
-                            <p>Successfully completed a course in Udemy, strong in problem solving.</p>
+                            <p>Successfully completed a course in Udemy, strong in problem solving.</p><br>
                             <a id="heyloos" href="c2.pdf">View Certificate</a>
                         </div>
                     </div>
@@ -121,7 +121,7 @@
                         <img src="c3.jpg">
                         <div class="layer">
                             <h3>An Introduction to C++</h3>
-                            <p>Successfully completed a course in Udemy, that covers all the introduction and basics in C++.</p>
+                            <p>Successfully completed a course in Udemy, that covers all the introduction and basics in C++.</p><br>
                             <a id="heyloos" href="c3.pdf">View Certificate</a>
                         </div>
                     </div>
@@ -140,13 +140,16 @@
                         <span></span><a href="https://www.instagram.com/kishore_144/"><img style="height: 20px; width: 20px;" id="heyloose" src="ins.png"></a>
                         <span></span><a href="https://www.linkedin.com/in/kishore-b-a461b02ab/"><img style="height: 20px; width: 20px;" id="heyloose" src="li.png"></a><br>
                         
-                    
+                    <br><br>
                     <div class="contactright">
-                            
-                            
-                            
-                            
-                            
+
+                            <form name="submit-to-google-sheet">
+                                <input type="text" name="Name" placeholder="Your Name"><br><br>
+                                <input type="email" name="Email" placeholder="Your Email" required><br>
+                                <textarea name="Message" rows="6" placeholder="Your Message" required></textarea><br><br>
+                                <button type="submit" id="summaaa">Send</button>
+                            </form> 
+                            <br><span id="msgg"></span>
                     </div>
                 </div>
             </div>
@@ -166,7 +169,24 @@
             document.getElementById(tabname).classList.add("activetab");
         }
     </script>
-
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwGy0m4gZMXTgHVidE9hI8zPtloRQjgU6aJxJGwR2H3HpAF1dTQFvvZ5PBYUBCGRg/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msgg=document.getElementById("msgg")
+        form.addEventListener('submit', e => {
+          e.preventDefault()
+          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+            .then(response => {
+                msgg.innerHTML="Message Sent Successfully"
+                form.reset()
+                setTimeout(function(){
+                    msgg.innerHTML=""
+                },4000)
+                
+            })
+            .catch(error => console.error('Error!', error.message))
+        })
+      </script>
 
     <script>
         var sidemenu=document.getElementById("sidemenu");

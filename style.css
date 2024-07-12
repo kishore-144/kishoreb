@@ -257,6 +257,98 @@ nav ul li a:hover::after{
 
 
 
+
+
+
+
+#oduu{
+    width: 400px;
+}
+.roundu{
+    width: 160px;
+    height: 160px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 0px;
+}
+.outer{
+    fill: none;
+    height: 160px;
+    width: 160px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 10px -1px rgba(255, 255, 255, 0.2),
+                -6px -6px 10px -1px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+}
+.inner{
+    fill: none;
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: inset 4px 4px 6px 3px rgba(255, 255, 255, 0.2),
+
+    inset -4px 4px 6px 1px rgba(0, 0, 0, 0.2),
+    
+    -0.5px -0.5px 0px rgb(0, 0, 0,1),
+    
+    0.5px 0.5px 0px rgba(255, 255, 255, 0.05),
+    
+    0px 12px 10px -10px rgba(255, 255, 255, 0.15);;
+}
+#numberu{
+    font-weight: 600px;
+    color: #555;
+}
+#t20{
+    
+    fill:none;
+    stroke:rgb(67, 134, 123);
+    stroke-width: 10px;
+    stroke-dasharray: 437;
+    stroke-dashoffset: 437;
+    animation: anim1 1s linear forwards;
+}
+#t55{
+    fill:none;
+    stroke:rgb(67, 134, 123);
+    stroke-width: 10px;
+    stroke-dasharray: 437;
+    stroke-dashoffset: 437;
+    animation: anim2 1s linear forwards;
+}
+#t55t{
+    margin-top: -300px;
+    padding-top: -5px;
+    margin-left: px;
+    margin-bottom: 15px;
+}
+#t20t{
+    margin-top: -300px;
+    padding-top: -5px;
+    margin-left: px;
+    margin-bottom: 15px;
+}
+@keyframes anim1{
+    100%{
+        stroke-dashoffset: 337;
+    }
+}
+@keyframes anim2{
+    100%{
+        stroke-dashoffset: 212;
+    }
+}
+
+
+
+
+
+
 .contactleft{
     flex-basis: 35%;
 }

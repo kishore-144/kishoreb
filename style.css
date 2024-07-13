@@ -1,3 +1,33 @@
+body,html{
+    margin: 0;
+            padding: 0;
+}
+#introVideoContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black; /* Background color for the video container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure the video is on top */
+}
+
+#introVideo {
+    max-width: 100%;
+    max-height: 100%;
+}
+.full {
+    display: none;
+}
+
+
+
+
+
+
 .first-letter {
     color: rgb(111, 182, 170);
 }

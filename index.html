@@ -6,10 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kishore Profile</title>
     <link rel="shortcut icon" type="image/x-icon" href="kk.jpg">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style2.css">
     
 </head>
 <body>
+    <div id="introVideoContainer">
+        <video id="introVideo" autoplay muted>
+            <source src="Portrait.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="full">
     <div id="header">
         <div class="container">
             <nav>
@@ -257,6 +265,19 @@
         function closemenu(){
             sidemenu.style.right="-200px";
         }
+        document.addEventListener("DOMContentLoaded", function() {
+    const introVideoContainer = document.getElementById("introVideoContainer");
+    const introVideo = document.getElementById("introVideo");
+    const full = document.getElementById("full");
+
+    // Listen for the end of the video
+    introVideo.addEventListener("ended", function() {
+        introVideoContainer.style.display = "none";
+        full.style.display = "block";
+        document.body.style.overflow = "auto"; // Re-enable scrolling
+    });
+});
     </script>
+    </div>
 </body>
 </html>

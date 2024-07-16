@@ -247,7 +247,7 @@ nav ul li a:hover::after{
     width: 100%;
     border-radius: 10px ;
     display: block;
-    transition: transform 0.5s , filter 0.5s;
+    transition: transform 3s , filter 0.5s;
 }
 .layer{
     width: 100%;
@@ -366,12 +366,12 @@ nav ul li a:hover::after{
 }
 @keyframes anim1{
     100%{
-        stroke-dashoffset: 337;
+        stroke-dashoffset: 357;
     }
 }
 @keyframes anim2{
     100%{
-        stroke-dashoffset: 212;
+        stroke-dashoffset: 187;
     }
 }
 
@@ -591,4 +591,14 @@ nav .fass{
     margin-top: -16px;
     display: block;
     
+}
+
+.copyright{
+    width: 100%;
+    text-align: center;
+    background: #262626;
+    padding: 15px;
+    border-radius: 5px;
+    font-weight: 300;
+    margin-top: 20px;
 }

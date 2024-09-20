@@ -22,7 +22,7 @@
         <div class="container">
             <nav>
                 <h1 style="font-size: 30px;"><span class="first-letter">K</span>ISHORE</h1>
-                <ul id="sidemenu">
+                <span style="float: right;"><ul id="sidemenu">
                     <img class="fass close" onclick="closemenu()" src="menu.png" id="booker">
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">My Work</a></li>
@@ -30,12 +30,12 @@
                     <li><a href="#target">Near-Term Targets</a></li>
                     <li><a href="#contact">Contact</a></li>
                 
-                </ul>
+                </ul></span>
                 <img class="fass menu" onclick="openmenu()" src="menu2.png">
             </nav>
             <div class="header-text">
                 <p>B.Tech CSE</p>
-                <h1>Hi, I'm <span>Kishore</span> <br>Front End Developer</h1>
+                <h1>Hi, I'm <span>Kishore</span> <br><span id="cursorr"></span></h1>
             </div>
         </div>
     </div>
@@ -65,9 +65,9 @@
                         </div>
                         <div class="tabcontents" id="education">
                             <ul>
-                                <li><span>2018-2019</span><br>I have completed my 10th boardexam with a decent score of 80% in <a style="text-decoration: none; color: #fff;" href="https://www.bellschool.in/">Bell School</a>.</li>
-                                <li><span>2020-2021</span><br>Scored again 80% only when taking Science, Maths and Computer Sceince in account in <a style="text-decoration: none; color: #fff;"href="https://www.bellschool.in/">Bell School</a>.</li>
-                                <li><span>2021-2025(Now)</span><br>I am currently persuing my college studies B.Tech CSE in <a style="text-decoration: none; color: #fff;" href="www.sastra.edu">SASTRA</a>.</li>
+                                <li><span>2018-2019</span><br>I completed my 10th board exam with a decent score of 80% at <a style="text-decoration: none; color: #fff;" href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
+                                <li><span>2020-2021</span><br>I achieved an 80% score in my 10th board exams, taking into account my performance in Science, Mathematics, and Computer Science at <a style="text-decoration: none; color: #fff;"href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
+                                <li><span>2021-2025(Now)</span><br>I am currently pursuing a B.Tech in Computer Science and Engineering at <a style="text-decoration: none; color: #fff;" href="www.sastra.edu">SASTRA Deemed to be University</a>.</li>
                             </ul>
                         </div>
                         <div class="tabcontents" id="coding">
@@ -258,7 +258,52 @@
             .catch(error => console.error('Error!', error.message))
         })
       </script>
-
+    <script>
+        var i = 0;
+        var currentTextIndex = 0;
+        var texts = [ 'Front End Developer','MERN Stack Devoloper', 'AI Solutions Developer']; // Array of texts
+        var speed = 100;
+        var delayBeforeNext = 3000;  // Time to wait before starting the next text
+        var jii = '|';
+        var jii2 = "";
+        var isTyping = true;  // Variable to track if we are typing or deleting
+        
+        function typeWriter() {
+          var txt = texts[currentTextIndex]; // Get the current text
+        
+          if (isTyping) {
+            // Type the text one character at a time
+            if (i < txt.length) {
+              jii2 += txt.charAt(i);
+              document.getElementById("cursorr").innerHTML = jii2 + jii;
+              i++;
+              setTimeout(typeWriter, speed);
+            } else {
+              // Once typing is done, wait for a moment and start removing
+              isTyping = false;
+              setTimeout(typeWriter, delayBeforeNext);
+            }
+          } else {
+            // Remove the text one character at a time
+            if (i > 0) {
+              jii2 = jii2.slice(0, -1);
+              document.getElementById("cursorr").innerHTML = jii2 + jii;
+              i--;
+              setTimeout(typeWriter, speed);
+            } else {
+              // When text is fully removed, move to the next text in the array
+              isTyping = true;
+              currentTextIndex = (currentTextIndex + 1) % texts.length;  // Loop back to the first text after the third one
+              setTimeout(typeWriter, speed);
+            }
+          }
+        }
+        
+        // Start the typewriter effect as soon as the page loads
+        window.onload = function() {
+          typeWriter();
+        };
+        </script>
     <script>
         var sidemenu=document.getElementById("sidemenu");
         function openmenu(){
@@ -279,7 +324,16 @@
         document.body.style.overflow = "auto"; // Re-enable scrolling
     });
 });
-    </script>
+    </script><script>
+    window.onscroll = function() {
+        var navbar = document.querySelector('nav');
+        if (window.scrollY > 5) { // Check if the page is scrolled down more than 5px
+            navbar.classList.add('sticky');
+        } else {
+            navbar.classList.remove('sticky');
+        }
+    };
+</script>
     </div>
 </body>
 </html>

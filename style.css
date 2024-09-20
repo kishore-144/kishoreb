@@ -8,11 +8,11 @@ body,html{
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: black; /* Background color for the video container */
+    background-color: black; 
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 1000; /* Ensure the video is on top */
+    z-index: 1000;
 }
 
 #introVideo {
@@ -55,7 +55,29 @@ nav{
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 2%;
 }
+
+nav {
+    position: fixed; /* Make the navbar stick to the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: transparent; /* Initial background color */
+    transition: background-color 0.3s; /* Smooth transition */
+    z-index: 1000; /* Ensure it stays on top */
+    border-radius: 5px;
+}
+
+nav.sticky {
+    background-color: rgb(122, 108, 43); /* Change to your desired color when sticky */
+}
+
+
+
+
 .logo{
     width: 140px;
 
@@ -95,7 +117,6 @@ nav ul li a:hover::after{
 .header-text h1 span{
     color: rgb(67, 134, 123);
 }
-
 
 
 

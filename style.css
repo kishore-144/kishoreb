@@ -27,6 +27,9 @@ body,html{
 
 
 
+h4{
+    color: rgb(111, 182, 170);
+}
 .first-letter {
     color: rgb(111, 182, 170);
 }
@@ -115,6 +118,66 @@ nav ul li a:hover::after{
 }
 .header-text h1 span{
     color: rgb(67, 134, 123);
+}
+
+
+
+
+
+
+
+
+
+
+/* Skills */
+.foriee {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    padding-left: -20px;
+    color: white;
+    text-align: start;
+}
+
+.leftiee {
+    flex: 1;
+    max-width: 40%;
+    padding-right: 20px;
+}
+
+.rightiee {
+    flex: 1;
+    max-width: 55%;
+}
+
+.subtitle {
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Extra styling for better spacing and mobile responsiveness */
+@media (max-width: 768px) {
+    .container.adada {
+        flex-direction: column;
+        align-items: center;
+        text-align: start;
+    }
+
+    .leftiee, .rightiee {
+        max-width: 100%;
+        left: -50px;
+        margin-left: -25px;
+    padding-left: -25px;
+    }
+    .rightiee{
+        scale: 0.8;
+        margin-left: -40px;
+    padding-left: -40px;
+    }
+    
+    
 }
 
 
@@ -622,3 +685,7 @@ nav .fass{
     font-weight: 300;
     margin-top: 20px;
 }
+
+
+
+

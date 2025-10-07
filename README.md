@@ -1,4 +1,4 @@
-## Warning: Enter at your own risk 🛑
-## Built during my “I just discovered web development” phase
-## Functionality may cause nostalgia, mild confusion, or random laughter
-## Still keeping it alive here for portfolio bragging rights 😎
+## ⚠️ Warning: Hardcore rookie code ahead
+## Built when I was a web dev apprentice with zero dev brain 🤣
+## Might break, might confuse, might make you forget your dev skills
+## Still flexing it here for portfolio street cred and to host it 💀

@@ -98,7 +98,7 @@ nav.sticky {
 nav ul li{
     display: inline-block;
     list-style:none;
-    margin: 10px 20px;
+    margin: 10px 15px;
 }
 nav ul li a{
     color: #fff;
@@ -594,6 +594,63 @@ form textarea{
 nav .fass{
     display: none;
 }
+/* Achievements Section */
+#achievements {
+    padding: 50px 0;
+    color: #fff;
+}
+
+.achieve-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 40px;
+    margin-top: 50px;
+}
+
+.achieve-item {
+    background: #262626;
+    padding: 30px;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+    text-align: center;
+}
+
+.achieve-item h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 15px 0 10px;
+    color: #fff;
+}
+
+.achieve-item p {
+    font-size: 14px;
+    color: #fff;
+    text-align: justify;
+}
+
+.achieve-item:hover {
+    background: rgb(67, 134, 123);
+    transform: translateY(-10px);
+}
+
+@media only screen and (max-width: 600px) {
+    #achievements {
+        padding: 40px 0;
+    }
+
+    .achieve-item {
+        padding: 20px;
+    }
+
+    .achieve-item h2 {
+        font-size: 18px;
+    }
+
+    .achieve-item p {
+        font-size: 13px;
+    }
+}
+
 @media only screen and (max-width:600px){
     .about-col-1 {
         display: none;
@@ -833,7 +890,7 @@ header {
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            background: conic-gradient(rgb(67, 134, 123) 0% 20%, #080808 20% 100%);
+            background: conic-gradient(rgb(67, 134, 123) 0% 50%, #080808 50% 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -855,6 +912,72 @@ header {
 		.leftiee{
 			text-align:justify;
 		}
+		/* Experience Section — Minimal Timeline Style */
+#experience {
+  padding: 60px 0;
+  color: #fff;
+  position: relative;
+}
+
+.timeline.no-dot {
+  position: relative;
+  margin: 50px auto;
+  padding-left: 30px;
+  border-left: 3px solid rgb(67, 134, 123);
+  width: 80%;
+}
+
+.timeline-content {
+  background: transparent;
+  padding: 10px 25px;
+  border-radius: 8px;
+  transition: all 0.4s ease;
+}
+
+.timeline-content h2 {
+  color: rgb(67, 134, 123);
+  font-size: 22px;
+  margin-bottom: 5px;
+}
+
+.timeline-content h4 {
+  font-size: 16px;
+  color: #bdbdbd;
+  margin-bottom: 10px;
+}
+
+.timeline-content p {
+  color: #e0e0e0;
+  text-align: justify;
+  line-height: 1.6;
+}
+
+/* Hover effect (subtle color fade) */
+.timeline-content:hover {
+  background: rgba(67, 134, 123, 0.15);
+  transform: translateX(5px);
+}
+
+/* Responsive */
+@media only screen and (max-width: 600px) {
+  .timeline.no-dot {
+    width: 90%;
+    padding-left: 20px;
+  }
+
+  .timeline-content {
+    padding: 10px 15px;
+  }
+
+  .timeline-content h2 {
+    font-size: 18px;
+  }
+
+  .timeline-content p {
+    font-size: 13px;
+  }
+}
+
 	</style>
     
 </head>
@@ -874,7 +997,9 @@ header {
                 <span style="float: right;"><ul id="sidemenu">
                     <img class="fass close" onclick="closemenu()" src="menu.png" id="booker">
                     <li><a href="#about">About</a></li>
+					<li><a href="#achievements">Achievements</a></li>
                     <li><a href="#services">My Work</a></li>
+                    <li><a href="#experience">Experience</a></li>
                     <li><a href="#skillsey">WebDev</a></li>
                     <li><a href="#certi">Certificates</a></li>
                     <li><a href="#target">Goals</a></li>
@@ -890,7 +1015,7 @@ header {
         </div>
     </div>
         <br><br><br><br><br>
-        
+
         <div id="about">
             <div class="container">
                 <div class="row">
@@ -899,7 +1024,7 @@ header {
                     </div>
                     <div class="about-col-2">
                         <br><br><br><br><h1 class="subtitle">About Me</h1>
-                        <p>Web developer with a strong proficiency in Python and a focus on machine learning and deep learning. Skilled in creating dynamic web applications and integrating advanced machine learning models. Passionate about continuous learning and applying innovative solutions to solve complex problems.</p>
+                        <p>Full Stack developer with a strong proficiency in JS, C#, Python and a focus on machine learning and deep learning. Skilled in creating dynamic web applications and integrating advanced machine learning models. Passionate about continuous learning and applying innovative solutions to solve complex problems.</p>
                         <div class="tabtitles">
                             <p class="tablinks activelink" onclick="opentab('skills')">Skills</p>
                             <p class="tablinks" onclick="opentab('education')">Education</p>
@@ -907,17 +1032,17 @@ header {
                         </div>
                         <div class="tabcontents activetab" id="skills">
                             <ul>
-                                <li><span>Programming Languages</span><br>I excel in programming, with a strong proficiency in C, C++, and Python.</li>
-                                <li><span>Tools</span><br>Proficient with tools such as Visual Studio Code, and PowerPoint.</li>
-                                <li><span>Version Control</span><br>Experienced with version control systems including Git and GitHub.</li>
-                                <li><span>Libraries And Framework</span><br>Familiar with libraries and frameworks such as NumPy, TensorFlow, and Tkinter.</li>
+                                <li><span>Programming Languages</span><br>I excel in programming, with a strong proficiency in C, C++, Python,JS, and C#.</li>
+                                <li><span>Tools</span><br>Proficient with tools such as Visual Studio Code, and Visual Studio 2022.</li>
+                                <li><span>Version Control</span><br>Experienced with version control systems including Git, GitHub and Docker.</li>
+                                <li><span>Libraries And Framework</span><br>Familiar with libraries and frameworks such as React, Express, Angular, and ASP.NET.</li>
                             </ul>
                         </div>
                         <div class="tabcontents" id="education">
                             <ul>
-                                <li><span>10th (2018-2019)</span><br>I completed my 10th board exam with a decent score of 80% at <a style="text-decoration: none; color: #fff;" href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
-                                <li><span>12th-CS (2020-2021)</span><br>I achieved an 80% score in my 12th board exams, taking into account my performance in Science, Mathematics, and Computer Science at <a style="text-decoration: none; color: #fff;"href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
-                                <li><span>UG-B.Tech CSE (2021-2025)<small>Now</small></span><br>I am currently pursuing a B.Tech in Computer Science and Engineering at <a style="text-decoration: none; color: #fff;" href="www.sastra.edu">SASTRA Deemed to be University</a>.</li>
+                                <li><span>10th (2019)</span><br>I completed my 10th board exam with a decent score of 80% at <a style="text-decoration: none; color: #fff;" href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
+                                <li><span>12th-CS (2021)</span><br>I achieved an 80% score in my 12th board exams, taking into account my performance in Science, Mathematics, and Computer Science at <a style="text-decoration: none; color: #fff;"href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
+                                <li><span>B.Tech CSE (2025)</span><br>I am graduated as a B.Tech in Computer Science Engineer at <a style="text-decoration: none; color: #fff;" href="www.sastra.edu">SASTRA Deemed to be University</a>.</li>
                             </ul>
                         </div>
                         <div class="tabcontents" id="coding">
@@ -930,32 +1055,79 @@ header {
                 </div>
             </div><br><br><br>
         </div><br><br>
+		        <!-- -----------Achievements----------- -->
+<div id="achievements">
+	<br/><br/><br/>
+  <div class="container">
+    <h1 class="subtitle">Achievements</h1>
+    <div class="achieve-list">
+      <div class="achieve-item">
+	  <i class='bx bx-code-alt' style="font-size: 40px; color: rgb(67, 134, 123);"></i>
+	  <h2>Developed grtr npm Package</h2>
+	  <p>Developed and published an npm package named <b>grtr</b>, enabling secure, fast, and local file transfers across devices in the same network using Node.js. Designed for simplicity and developer efficiency.</p><br/>
+	  <a id="heyloos" href="https://www.npmjs.com/package/grtr" target="_blank">View Package</a>
+	</div>
+
+      <div class="achieve-item">
+        <i class='bx bxs-book' style="font-size: 40px; color: rgb(67, 134, 123);"></i>
+        <h2>Contributed as Book Author</h2>
+        <p>Contributed to lockchain-Driven AI Framework for Early Human Monkeypox Detection 2024.</p><br/>
+	  <a id="heyloos" href="https://www.routledge.com/Deep-Learning-and-Blockchain-Technology-for-Smart-and-Sustainable-Cities/V-Revathy-Ravi-Thillaiarasu-Kshetri/p/book/9781032748573" target="_blank">View Book</a>
+      </div>
+      <div class="achieve-item">
+        <i class='bx bx-medal' style="font-size: 40px; color: rgb(67, 134, 123);"></i>
+        <h2>5-Star Coder in HackerRank</h2>
+        <p>Earned 5-star gold ratings in Python and C++ programming, showcasing problem-solving and algorithmic proficiency.</p><br/>
+	  <a id="heyloos" href="https://www.hackerrank.com/profile/h225003069" target="_blank">View Rank</a>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br>
         <!-----------services----------->
         <div id="services">
+		<br/><br/>
             <div class="container">
                 <h1 class="subtitle">My Works</h1>
                 <div class="services-list">
                     <div>
                         <h2>Decentralized IoT Solution for Smart Agriculture</h2>
-                        <p>A decentralized smart irrigation system using Raspberry Pi and ESP32 nodes, equipped with soil moisture sensors and sprinklers. The system operates on a master-slave architecture, using a local network for communication. A private web server enables real-time monitoring and automated moisture-based sprinkler control, ensuring data privacy, reducing water waste, and eliminating third-party cloud dependency for sustainable farming.</p>
+                        <p style="text-align: justify;">A decentralized smart irrigation system using Raspberry Pi and ESP32 nodes with soil moisture sensors and sprinklers. It uses a local network and master-slave setup for real-time monitoring and automated moisture-based control, ensuring privacy, reducing water waste, and removing third-party cloud dependency.</p>
                         <a id="heyloos" href="https://github.com/kishore-144/IoT_Decentralized.git">Visit Web</a>
                     </div>
                     <div>
                         <h2>GlobalHire Web Portal</h2>
-                        <p>Designed and developed a responsive web platform for Malvquest, an international staffing agency, implementing a dynamic UI/UX framework. Integrated Google Sheets via API for seamless real-time data storage and management, ensuring efficient customer information handling and accessibility. </p>
+                        <p style="text-align: justify;">Designed and developed a responsive web platform for Malvquest, an international staffing agency, implementing a dynamic UI/UX framework. Integrated Google Sheets via API for seamless real-time data storage and management, ensuring efficient customer information handling and accessibility. </p>
                         <a id="heyloos" href="https://dhayananthg.github.io/malvquest/">Visit Web</a>
                     </div>
                     <div>
                         <h2>Human Monkeypox Detection Using ML</h2>
-                        <p>I successfully spearheaded a project to detect monkeypox using the advanced YOLOv(You Only Look Once) machine learning algorithm. We achieved an impressive accuracy rate of nearly 95%, surpassing existing benchmarks</p>
+                        <p style="text-align: justify;">I successfully spearheaded a project to detect monkeypox using the advanced YOLOv(You Only Look Once) machine learning algorithm. We achieved an impressive accuracy rate of nearly 95%, surpassing existing benchmarks</p>
                         <a id="heyloos" href="https://wa.me/+919345274914/?text=I%20hope%20you're%20doing%20well.%20I%20came%20across%20your%20machine%20learning%20project%20and%20found%20it%20quite%20impressive.%20I%20would%20love%20to%20learn%20more%20about%20your%20approach%2C%20methodologies%2C%20and%20any%20challenges%20you%20faced%20during%20the%20development%20process.%20Looking%20forward%20to%20your%20insights!">Enquire?</a>
                     </div>
-
-
+					
+					
                 </div>
             </div>
         </div><br><br><br>
 
+<!-- -----------Work Experience----------- -->
+<div id="experience">
+  <div class="container">
+    <h1 class="subtitle">Experience</h1>
+    <div class="timeline no-dot">
+      <div class="timeline-content">
+        <h2>ASP.NET Developer Intern</h2>
+        <h4>Global Software Solutions | August 2025</h4>
+        <p>
+		  Learned ASP.NET development, building efficient web applications and honing my skills in PostgreSQL, C#, and ORMs.
+		  Developed efficient <b>Web APIs</b> for web applications.
+		  Simultaneously explored system design and gained introductory experience in DevOps engineering.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
 
         <div id="skillsey" class="container adada">
             <br><br><br><br>
@@ -965,7 +1137,7 @@ header {
     <div class="row">
         <div class="leftiee">
             <br>
-            <p>Specialized in building dynamic and responsive websites, I have developed full-stack projects using key technologies like JavaScript, ReactJS, and NodeJS. My experience spans both front-end and back-end development, allowing me to create seamless user experiences and scalable solutions. With proficiency in the MERN stack—MongoDB, ExpressJS, ReactJS, and NodeJS—I integrate client-side and server-side components efficiently, delivering complete web applications that are optimized for performance and functionality across various platforms. I ensure that my solutions are not only reliable but also scalable, adapting easily to growing business needs. Through continuous learning, I stay updated on the latest development trends to further enhance the quality of my work.</p>
+            <p>Specialized in building dynamic and responsive web applications, I have developed projects using ASP.NET Core Web API, PostgreSQL, and the MERN stack. My experience spans both front-end and back-end development, enabling me to create secure, scalable, and high-performance solutions. In ASP.NET Core, I’ve implemented key concepts such as authentication, authorization, OAuth2, JWT, logging, password hashing, and full-fledged ORMs for robust API design. Alongside this, my proficiency in the MERN stack—MongoDB, ExpressJS, ReactJS, and NodeJS—allows me to integrate efficient client-server systems. I stay consistently updated with modern technologies to deliver optimized and reliable web solutions.</p>
         </div>
         <div class="rightiee">
     
@@ -973,30 +1145,30 @@ header {
         <div class="tag-list">
           <div class="loop-slider" style="--duration:15951ms; --direction:normal;">
             <div class="inner2">
-              <div class="tag"><span>#</span> JavaScript</div>
-              <div class="tag"><span>#</span> MERN</div>
-              <div class="tag"><span>#</span> NodeJS</div>
-              <div class="tag"><span>#</span> ReactJS</div>
-              <div class="tag"><span>#</span> UI/UX</div>
+              <div class="tag"><span>#</span> ASP.Net</div>
+              <div class="tag"><span>#</span> WebAPI</div>
+              <div class="tag"><span>#</span> JWT</div>
+              <div class="tag"><span>#</span> OAuth2.0</div>
+              <div class="tag"><span>#</span> Pipelines</div>
               <!-- duplicated content -->
-              <div class="tag"><span>#</span> JavaScript</div>
-              <div class="tag"><span>#</span> MERN</div>
-              <div class="tag"><span>#</span> NodeJS</div>
-              <div class="tag"><span>#</span> ReactJS</div>
-              <div class="tag"><span>#</span> UI/UX</div>
+              <div class="tag"><span>#</span> ASP.Net</div>
+              <div class="tag"><span>#</span> WebAPI</div>
+              <div class="tag"><span>#</span> JWT</div>
+              <div class="tag"><span>#</span> OAuth2.0</div>
+              <div class="tag"><span>#</span> Pipelines</div>
             </div>
           </div>
           <div class="loop-slider" style="--duration:19260ms; --direction:reverse;">
             <div class="inner2">
               <div class="tag"><span>#</span> MERN</div>
               <div class="tag"><span>#</span> ExpressJS</div>
-              <div class="tag"><span>#</span> JavaScript</div>
+              <div class="tag"><span>#</span> ReactJS</div>
               <div class="tag"><span>#</span> Bootsrap</div>
               <div class="tag"><span>#</span> NodeJS</div>
               <!-- duplicated content -->
               <div class="tag"><span>#</span> MERN</div>
               <div class="tag"><span>#</span> ExpressJS</div>
-              <div class="tag"><span>#</span> JavaScript</div>
+              <div class="tag"><span>#</span> ReactJS</div>
               <div class="tag"><span>#</span> Bootsrap</div>
               <div class="tag"><span>#</span> NodeJS</div>
             </div>
@@ -1018,16 +1190,16 @@ header {
           </div>
           <div class="loop-slider" style="--duration:16638ms; --direction:reverse;">
             <div class="inner2">
-              <div class="tag"><span>#</span> ExpressJS</div>
-              <div class="tag"><span>#</span> HTML</div>
-              <div class="tag"><span>#</span> CSS</div>
-              <div class="tag"><span>#</span> React</div>
+              <div class="tag"><span>#</span> ORMs</div>
+              <div class="tag"><span>#</span> Postgres</div>
+              <div class="tag"><span>#</span> EFCore</div>
+              <div class="tag"><span>#</span> Dart</div>
               <div class="tag"><span>#</span> ReactJS</div>
               <!-- duplicated content -->
-              <div class="tag"><span>#</span> ExpressJS</div>
-              <div class="tag"><span>#</span> HTML</div>
-              <div class="tag"><span>#</span> CSS</div>
-              <div class="tag"><span>#</span> React</div>
+              <div class="tag"><span>#</span> ORMs</div>
+              <div class="tag"><span>#</span> Postgres</div>
+              <div class="tag"><span>#</span> EFCore</div>
+              <div class="tag"><span>#</span> Dart</div>
               <div class="tag"><span>#</span> ReactJS</div>
             </div>
           </div>
@@ -1088,15 +1260,16 @@ header {
         <!-----------Near-Term Targets-------->
         <br><br><br><br><br><br>
         <div id="target">
+		<br/><br/><br/>
             <div class="container">
                 <h1 class="subtitle">Near-Term Targets</h1><br><br>
-                <p id="prob1">As a final-year student, I recognize the critical importance of this year in shaping my future career. Currently, I am focusing on advancing my skills in ReactJS and Machine Learning. By dedicating significant time and effort to mastering these technologies, I aim to enhance my proficiency in modern web development and data-driven decision-making. My goal is to integrate these advanced skills into my upcoming projects, thereby preparing myself for a successful transition into the professional world upon graduation.</p>
+                <p id="prob1">As an intern, I recognize the critical importance of this year in shaping my future career. Currently, I am focusing on advancing my skills in ASP.NET and AngularJS. By dedicating significant time and effort to mastering these technologies, I aim to enhance my proficiency in modern web development and data-driven decision-making. My goal is to integrate these advanced skills into my upcoming projects, thereby preparing myself for a successful transition into the professional world upon entering the IT industry.</p>
                         <div class="tabtitles">
-                            <p class="tablinks activelink" onclick="opentab('ReactJS')"><b>MERN Stack</b></p>
-                            <p class="tablinks" onclick="opentab('machlea')"><b>Flutter And Dart</b></p>
+                            <p class="tablinks activelink" onclick="opentab('ReactJS')"><b>ASP.NET</b></p>
+                            <p class="tablinks" onclick="opentab('machlea')"><b>Angular</b></p>
                         </div>
                         <div class="tabcontents activetab" id="ReactJS">
-                            <p id="oduu">I am actively learning full-stack development with the MERN stack, building modern web applications and honing my skills in MongoDB, ExpressJS, ReactJS, and NodeJS. Through hands-on projects and coursework, I am strengthening my expertise in both front-end and back-end development while exploring best practices for creating robust, scalable applications.</p>
+                            <p id="oduu">I am actively learning ASP.NET development, building efficient web applications and honing my skills in PostgreSQL, C#, and ORMs. Through hands-on projects and online sources, I am strengthening my expertise in both back-end development and devops while exploring best practices for creating robust, scalable backend and console applications.</p>
                             <br><p style="color: rgb(145, 177, 171);">Progress:</p><br>
                             
                             <div class="progress-circle--kishore-m">
@@ -1104,11 +1277,11 @@ header {
 							</div>
                         </div>
                         <div class="tabcontents" id="machlea">
-                            <p id="oduu">I am currently taking a course on Flutter and Dart, focusing on app development and UI design. Through this coursework, I aim to gain hands-on experience in building modern, responsive applications while enhancing my understanding of efficient UI design principles.</p>
+                            <p id="oduu">I am currently taking a course on AngularJS, focusing on frontend development and UI design. Through this coursework, I aim to gain hands-on experience in building modern, responsive web applications while enhancing my understanding of efficient UI design principles.</p>
                             <br><p style="color: rgb(145, 177, 171);">Progress:</p>
                             <br>
                             <div class="progress-circle--kishore-f">
-								<div class="progress-value--kishore">20%</div>
+								<div class="progress-value--kishore">50%</div>
 							</div>
                         </div>
             </div>
@@ -1116,6 +1289,7 @@ header {
         <br><br><br><br><br><br><br><br>
         <!-----------Contact-------->
         <div id="contact">
+		<br/><br/><br/>
             <div class="container">
                 <div class="roww"><div>
                     <div class="contactleft">
@@ -1177,7 +1351,7 @@ header {
     <script>
         var i = 0;
         var currentTextIndex = 0;
-        var texts = [ 'Front End Developer','MERN Stack Developer', 'AI Solutions Developer']; // Array of texts
+        var texts = [ 'MERN Stack Developer', 'Backend Engineer', 'ASP.NET Developer']; // Array of texts
         var speed = 100;
         var delayBeforeNext = 3000;  // Time to wait before starting the next text
         var jii = '|';

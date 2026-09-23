@@ -13,12 +13,11 @@
   /* ---------------------------------------------------------------------------
      Intro overlay
      The original site hid the whole page until the clip finished. The clip now
-     still plays, but it can always be skipped and it always fails open.
+     still plays; Esc / Enter / Space dismiss it, and it always fails open.
      ------------------------------------------------------------------------ */
   function initIntro() {
     var intro = $('#intro');
     var video = $('#introVideo');
-    var skip  = $('#introSkip');
     if (!intro || !video) return;
     if (reduceMotion.matches) return;              // never even fetch the clip
 
@@ -44,7 +43,6 @@
     video.addEventListener('ended', dismiss);
     video.addEventListener('error', dismiss);
     video.addEventListener('stalled', dismiss);
-    skip.addEventListener('click', dismiss);
     document.addEventListener('keydown', function (e) {
       if (!done && (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ')) dismiss();
     });
@@ -55,8 +53,6 @@
     video.preload = 'auto';
     var playback = video.play();
     if (playback && typeof playback.catch === 'function') playback.catch(dismiss);
-
-    try { skip.focus({ preventScroll: true }); } catch (e) { skip.focus(); }
   }
 
   /* ---------------------------------------------------------------------------

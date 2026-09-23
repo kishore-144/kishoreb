@@ -350,22 +350,6 @@
     object-fit: contain;
     background: #000;
   }
-  .intro__skip {
-    position: absolute;
-    right: var(--sp-5);
-    bottom: var(--sp-5);
-    min-height: 2.75rem;
-    padding: var(--sp-3) var(--sp-5);
-    background: rgb(255 255 255 / 8%);
-    border: 1px solid var(--line-strong);
-    border-radius: var(--r-sm);
-    color: var(--ink);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .intro__skip:hover { background: rgb(255 255 255 / 14%); }
   .intro[hidden] { display: none; }
   .intro.is-leaving { opacity: 0; pointer-events: none; }
 

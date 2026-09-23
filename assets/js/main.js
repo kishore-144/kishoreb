@@ -60,17 +60,30 @@
   }
 
   /* ---------------------------------------------------------------------------
-     Header: solid background once the page scrolls
+     Header: solid background once the page scrolls; tucks away while reading
+     downward and returns on the first scroll up. Never hides with the mobile
+     menu open or while something inside it has focus.
      ------------------------------------------------------------------------ */
   function initHeader() {
     var header = $('#siteHeader');
     if (!header) return;
     var ticking = false;
+    var lastY = window.scrollY;
 
     function update() {
-      header.classList.toggle('is-stuck', window.scrollY > 5);
+      var y = window.scrollY;
+      header.classList.toggle('is-stuck', y > 5);
+
+      var delta = y - lastY;
+      var locked = document.body.dataset.nav === 'open' || header.contains(document.activeElement);
+      if (locked || y < 240) header.classList.remove('is-hidden');
+      else if (delta > 6) header.classList.add('is-hidden');
+      else if (delta < -6) header.classList.remove('is-hidden');
+      if (Math.abs(delta) > 6) lastY = y;
+
       ticking = false;
     }
+    header.addEventListener('focusin', function () { header.classList.remove('is-hidden'); });
     window.addEventListener('scroll', function () {
       if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
     }, { passive: true });
@@ -234,19 +247,30 @@
       if (!pending.length) window.removeEventListener('scroll', onScroll);
     }
 
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) reveal(entry.target);
+    // Items that enter in the same frame (a row of cards, a list on a tall
+    // screen) cascade in DOM order instead of popping in at once.
+    function revealBatch(els) {
+      els.sort(function (a, b) {
+        return a.compareDocumentPosition(b) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
       });
+      els.forEach(function (el, i) {
+        el.style.setProperty('--reveal-delay', Math.min(i, 4) * 90 + 'ms');
+        reveal(el);
+      });
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      revealBatch(entries.filter(function (e) { return e.isIntersecting; })
+                         .map(function (e) { return e.target; }));
     }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
 
     // A fast flick or an anchor jump can outrun the observer, so sweep anything
     // that is already on screen once scrolling settles.
     var sweepTimer;
     function sweep() {
-      pending.slice().forEach(function (el) {
-        if (el.getBoundingClientRect().top < window.innerHeight) reveal(el);
-      });
+      revealBatch(pending.filter(function (el) {
+        return el.getBoundingClientRect().top < window.innerHeight;
+      }));
     }
     function onScroll() {
       clearTimeout(sweepTimer);
@@ -283,6 +307,42 @@
     }, { rootMargin: '-45% 0px -50% 0px' });
 
     sections.forEach(function (s) { io.observe(s); });
+  }
+
+  /* ---------------------------------------------------------------------------
+     Card spotlight — a soft light that follows the pointer (fine pointers only)
+     ------------------------------------------------------------------------ */
+  function initSpotlight() {
+    if (reduceMotion.matches || !window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    $$('[data-spotlight]').forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+      });
+    });
+  }
+
+  /* ---------------------------------------------------------------------------
+     Reading progress — CSS scroll timelines drive it where supported; this is
+     the fallback for browsers without them (e.g. Firefox).
+     ------------------------------------------------------------------------ */
+  function initProgress() {
+    var bar = $('.scroll-progress');
+    if (!bar || reduceMotion.matches) return;
+    if (window.CSS && CSS.supports && CSS.supports('animation-timeline: scroll()')) return;
+
+    var ticking = false;
+    function update() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.setProperty('--progress', max > 0 ? Math.min(1, window.scrollY / max) : 0);
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { ticking = true; window.requestAnimationFrame(update); }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   }
 
   /* ---------------------------------------------------------------------------
@@ -334,5 +394,7 @@
   initTypewriter();
   initReveal();
   initScrollSpy();
+  initSpotlight();
+  initProgress();
   initForm();
 })();

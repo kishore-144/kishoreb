@@ -88,7 +88,7 @@
 
     --section-y: clamp(4rem, 8vw, 7.5rem);
     --gutter:    clamp(1.25rem, 5vw, 4rem);
-    --shell:     75rem;
+    --shell:     88rem;
     --measure:   62ch;
 
     /* Shape + depth -------------------------------------------------------- */
@@ -116,7 +116,11 @@
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--nav-h) + var(--sp-5));
+    /* Page scrollbar hidden (scrolling still works); the reading-progress
+       hairline at the top stands in for it. */
+    scrollbar-width: none;
   }
+  html::-webkit-scrollbar { display: none; }   /* older Chromium / Safari */
 
   body,
   h1, h2, h3, h4, p, figure, blockquote, dl, dd, ul, ol {
@@ -194,6 +198,15 @@
     line-height: var(--leading-tight);
   }
   .section__title .qualifier { color: var(--accent); font-weight: 500; }
+  .section__title::after {
+    content: '';
+    display: block;
+    width: 2.5rem;
+    height: 2px;
+    margin-top: var(--sp-4);
+    background: var(--accent);
+    transform-origin: left;
+  }
 
   .section__index {
     flex: none;
@@ -367,8 +380,10 @@
     background: transparent;
     border-bottom: 1px solid transparent;
     transition: background-color var(--dur-2) var(--ease),
-                border-color var(--dur-2) var(--ease);
+                border-color var(--dur-2) var(--ease),
+                translate var(--dur-3) var(--ease-out);
   }
+  .site-header.is-hidden { translate: 0 -100%; }
   .site-header.is-stuck {
     background: rgb(8 8 8 / 82%);
     border-bottom-color: var(--line);
@@ -512,14 +527,17 @@
     gap: var(--sp-6);
     align-items: end;
   }
-  .hero__copy { position: relative; z-index: 2; }
+  .hero__copy { position: relative; z-index: 2; container-type: inline-size; }
   .hero__title {
     margin-top: var(--sp-4);
     font-size: var(--text-3xl);
+    /* "Hi, I'm Kishore" is ~6.2em wide; cap the size to what the column fits. */
+    font-size: min(var(--text-3xl), calc(100cqi / 6.4));
     line-height: 0.98;
     letter-spacing: -0.035em;
     font-weight: 600;
   }
+  .hero__greeting { display: block; white-space: nowrap; }
   .hero__name { color: var(--accent); }
   .hero__position {
     display: block;
@@ -600,10 +618,10 @@
       z-index: 1;
       width: max(17rem, var(--portrait-w));
       -webkit-mask-image:
-        linear-gradient(to bottom, #000 74%, transparent 99%),
+        linear-gradient(to bottom, transparent 0%, #000 9%, #000 74%, transparent 99%),
         linear-gradient(to right, transparent 0%, #000 12%, #000 94%, transparent 100%);
       mask-image:
-        linear-gradient(to bottom, #000 74%, transparent 99%),
+        linear-gradient(to bottom, transparent 0%, #000 9%, #000 74%, transparent 99%),
         linear-gradient(to right, transparent 0%, #000 12%, #000 94%, transparent 100%);
       -webkit-mask-composite: source-in;
       mask-composite: intersect;
@@ -671,44 +689,190 @@
   }
   .portrait img { width: 100%; }
 
-  /* -- entry list (Achievements, Works, Experience) ------------------------- */
-  .entries { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
-  .entry {
+  /* Body copy shared by the timeline entries */
+  .entry__body { margin-top: var(--sp-3); color: var(--ink-muted); max-width: var(--measure); }
+  .entry__body b { color: var(--ink); font-weight: 600; }
+
+  /* -- highlight cards (Achievements) ---------------------------------------
+     Self-contained cards: the whole surface is the link target, and a soft
+     light follows the pointer across it (see initSpotlight in main.js). */
+  .highlights {
     display: grid;
-    gap: var(--sp-3) clamp(1.5rem, 4vw, 3rem);
-    padding-block: clamp(1.75rem, 3.5vw, 2.75rem);
-    border-top: 1px solid var(--line);
+    gap: clamp(1rem, 2.5vw, 1.5rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(21rem, 100%), 1fr));
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
-  .entry:last-child { border-bottom: 1px solid var(--line); }
-  @media (min-width: 48rem) {
-    .entry { grid-template-columns: minmax(0, 7rem) minmax(0, 1fr); align-items: start; }
+  .highlight {
+    --mx: 50%;
+    --my: 0%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    background: var(--bg-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    isolation: isolate;
+    transition: border-color var(--dur-2) var(--ease), transform var(--dur-3) var(--ease-out),
+                opacity var(--dur-3) var(--ease-out);
+  }
+  .highlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(28rem circle at var(--mx) var(--my), rgb(111 182 170 / 9%), transparent 60%);
+    opacity: 0;
+    transition: opacity var(--dur-3) var(--ease);
+  }
+  .highlight:hover,
+  .highlight:focus-within { border-color: rgb(111 182 170 / 35%); }
+  .highlight:hover::before,
+  .highlight:focus-within::before { opacity: 1; }
+  @media (hover: hover) {
+    .js .highlight.is-revealed:hover { transform: translateY(-3px); }
   }
 
-  .entry__meta {
-    display: flex;
-    align-items: center;
-    gap: var(--sp-3);
+  .highlight__icon {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid rgb(111 182 170 / 25%);
+    border-radius: var(--r-md);
+    background: var(--accent-wash);
+    color: var(--accent);
+  }
+  .highlight__icon svg { width: 1.25rem; height: 1.25rem; }
+  .highlight__kicker {
+    margin-top: var(--sp-6);
     font-family: var(--font-mono);
     font-size: var(--text-xs);
     letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--ink-faint);
   }
-  .entry__icon { flex: none; width: 1.5rem; height: 1.5rem; color: var(--accent); }
-  .entry__icon svg { width: 100%; height: 100%; }
+  .highlight__title { margin-top: var(--sp-2); font-size: var(--text-lg); }
+  .highlight__body { margin-top: var(--sp-3); color: var(--ink-muted); }
+  .highlight__body b { color: var(--ink); font-weight: 600; }
+  .highlight__link { margin-top: auto; padding-top: var(--sp-5); align-self: flex-start; }
+  .highlight__link::before { content: ''; position: absolute; inset: 0; }   /* whole card clickable */
+  .highlight:hover .highlight__link::after { transform: rotate(45deg) translate(0.12em, -0.12em); }
 
-  .entry__title { font-size: var(--text-lg); }
-  .entry__sub {
-    display: block;
-    margin-top: var(--sp-1);
+  /* -- project rows (My Works) ----------------------------------------------
+     Wide, editorial rows: outlined index, title + stack, and a round action.
+     A faint band sweeps in behind the row on hover. */
+  .projects { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .project {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: var(--sp-4) clamp(1.5rem, 4vw, 3.5rem);
+    align-items: start;
+    padding: clamp(1.75rem, 3.5vw, 2.75rem) clamp(0rem, 1.5vw, 1.25rem);
+    border-bottom: 1px solid var(--line);
+    isolation: isolate;
+  }
+  .project::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(90deg, var(--accent-wash), transparent 85%);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 560ms var(--ease-out);
+  }
+  .project:hover::before,
+  .project:focus-within::before { transform: scaleX(1); }
+
+  .project__num {
+    grid-column: 1 / -1;
     font-family: var(--font-mono);
     font-size: var(--text-sm);
-    font-weight: 400;
-    color: var(--ink-faint);
-    letter-spacing: 0;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--accent);
   }
-  .entry__body { margin-top: var(--sp-3); color: var(--ink-muted); max-width: var(--measure); }
-  .entry__body b { color: var(--ink); font-weight: 600; }
-  .entry__foot { margin-top: var(--sp-4); }
+  @media (min-width: 48rem) {
+    .project { grid-template-columns: 6.5rem minmax(0, 1fr) auto; }
+    .project__num {
+      grid-column: auto;
+      font-size: var(--text-2xl);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px var(--ink-faint);
+      transition: color var(--dur-3) var(--ease), -webkit-text-stroke-color var(--dur-3) var(--ease);
+    }
+    .project:hover .project__num,
+    .project:focus-within .project__num { color: var(--accent); -webkit-text-stroke-color: var(--accent); }
+  }
+
+  .project__title { font-size: var(--text-xl); line-height: 1.2; }
+  .project__link { text-decoration: none; transition: color var(--dur-2) var(--ease); }
+  .project__link::after { content: ''; position: absolute; inset: 0; }   /* whole row clickable */
+  .project:hover .project__link { color: var(--accent); }
+  .project__body { margin-top: var(--sp-3); color: var(--ink-muted); max-width: var(--measure); }
+
+  .project__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--sp-2);
+    margin: var(--sp-4) 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .project__tags li {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-family: var(--font-mono);
+    font-size: var(--text-xs);
+    color: var(--ink-muted);
+  }
+
+  .project__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-3);
+    align-self: center;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    transition: color var(--dur-2) var(--ease);
+  }
+  .project__cta-icon {
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 50%;
+    transition: background-color var(--dur-2) var(--ease), border-color var(--dur-2) var(--ease),
+                color var(--dur-2) var(--ease), transform var(--dur-3) var(--ease-out);
+  }
+  .project__cta-icon svg { width: 1rem; height: 1rem; }
+  .project:hover .project__cta,
+  .project:focus-within .project__cta { color: var(--ink); }
+  .project:hover .project__cta-icon,
+  .project:focus-within .project__cta-icon {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+    transform: rotate(45deg);
+  }
+  /* Phones: the round action sits beside the index, label hidden. */
+  @media (max-width: 47.99rem) {
+    .project__cta { grid-row: 1; grid-column: 2; align-self: start; }
+    .project__cta-label { display: none; }
+    .project__num { grid-column: 1; }
+    .project__main { grid-column: 1 / -1; }
+  }
 
   /* -- timeline (Experience) ------------------------------------------------
      Date on the left of an accent rule, role details on the right. Adjacent
@@ -742,12 +906,23 @@
     color: var(--ink-faint);
   }
   .timeline__body {
+    position: relative;
     padding: var(--sp-2) 0 clamp(2.25rem, 5vw, 3.5rem) clamp(1.25rem, 4vw, 3.5rem);
-    border-left: 3px solid var(--accent-deep);
+    border-left: 3px solid var(--line);
+  }
+  .timeline__body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -3px;
+    width: 3px;
+    background: var(--accent-deep);
+    transform-origin: top;
   }
   .timeline__item:last-child .timeline__body { padding-bottom: var(--sp-5); }
   /* The ongoing role gets the brighter teal, so the line brightens toward the present. */
-  .timeline__item--current .timeline__body { border-left-color: var(--accent); }
+  .timeline__item--current .timeline__body::before { background: var(--accent); }
   .timeline__role {
     font-size: var(--text-lg);
     line-height: 1.2;
@@ -766,11 +941,23 @@
      role, inside the rule. */
   @media (max-width: 30rem) {
     .timeline__item {
+      position: relative;
       grid-template-columns: minmax(0, 1fr);
       padding-left: var(--sp-4);
-      border-left: 2px solid var(--accent-deep);
+      border-left: 2px solid var(--line);
     }
-    .timeline__item--current { border-left-color: var(--accent); }
+    .timeline__item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: -2px;
+      width: 2px;
+      background: var(--accent-deep);
+      transform-origin: top;
+    }
+    .timeline__item--current::before { background: var(--accent); }
+    .timeline__body::before { display: none; }
     .timeline__when { padding: var(--sp-2) 0 0; text-align: left; }
     .timeline__date--wide { display: none; }
     .timeline__date--narrow {
@@ -902,13 +1089,67 @@
 @layer utilities {
   .stack-6 > * + * { margin-top: var(--sp-6); }
 
-  /* Scroll reveal — opt-in, only when JS is running and motion is welcome */
-  .js [data-reveal] {
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity var(--dur-3) var(--ease-out), transform var(--dur-3) var(--ease-out);
+  /* -- Motion ---------------------------------------------------------------
+     Everything here is a one-shot animation on opacity / translate / scale,
+     so it never fights the components' own transitions or hover transforms,
+     and it is switched off wholesale under prefers-reduced-motion. */
+
+  /* Scroll reveal — opt-in, only when JS is running. main.js staggers items
+     that enter together through --reveal-delay. */
+  .js [data-reveal]:not(.is-revealed) { opacity: 0; }
+  .js [data-reveal].is-revealed {
+    animation: reveal-in 720ms var(--ease-out) var(--reveal-delay, 0ms) backwards;
   }
-  .js [data-reveal].is-revealed { opacity: 1; transform: none; }
+  @keyframes reveal-in { from { opacity: 0; translate: 0 14px; } }
+
+  /* Section rule and timeline line draw once their block is revealed */
+  .js .section__head:not(.is-revealed) .section__title::after { scale: 0 1; }
+  .js .section__head.is-revealed .section__title::after {
+    animation: rule-in 800ms var(--ease-out) 220ms backwards;
+  }
+  @keyframes rule-in { from { scale: 0 1; } }
+
+  .js .timeline__item:not(.is-revealed) .timeline__body::before,
+  .js .timeline__item:not(.is-revealed)::before { scale: 1 0; }
+  .js .timeline__item.is-revealed .timeline__body::before,
+  .js .timeline__item.is-revealed::before {
+    animation: line-draw 1100ms var(--ease-out) calc(var(--reveal-delay, 0ms) + 150ms) backwards;
+  }
+  @keyframes line-draw { from { scale: 1 0; } }
+
+  /* Hero entrance: copy rises line by line, portrait settles in. Runs on load
+     by default, and waits behind the intro clip while it plays. */
+  [data-hero-step] { animation: hero-rise 900ms var(--ease-out) backwards; }
+  [data-hero-step]:nth-child(2) { animation-delay: 140ms; }
+  [data-hero-step]:nth-child(3) { animation-delay: 280ms; }
+  @keyframes hero-rise { from { opacity: 0; translate: 0 22px; } }
+
+  .hero__portrait,
+  .hero__backdrop { animation: hero-settle 1400ms var(--ease-out) backwards; }
+  @keyframes hero-settle { from { opacity: 0; scale: 1.035; } }
+
+  html[data-intro='playing'] :is([data-hero-step], .hero__portrait, .hero__backdrop) {
+    animation-play-state: paused;
+  }
+
+  /* Reading progress — a hairline across the top of the viewport */
+  .scroll-progress {
+    position: fixed;
+    inset: 0 0 auto;
+    z-index: 150;
+    height: 2px;
+    background: linear-gradient(90deg, var(--accent-deep), var(--accent));
+    transform-origin: left;
+    transform: scaleX(var(--progress, 0));
+    pointer-events: none;
+  }
+  @supports (animation-timeline: scroll()) {
+    .scroll-progress {
+      animation: progress-fill linear both;
+      animation-timeline: scroll(root);
+    }
+    @keyframes progress-fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -919,8 +1160,13 @@
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
   }
-  .js [data-reveal] { opacity: 1; transform: none; }
+  .js [data-reveal]:not(.is-revealed) { opacity: 1; }
+  .js .section__head:not(.is-revealed) .section__title::after,
+  .js .timeline__item:not(.is-revealed) .timeline__body::before,
+  .js .timeline__item:not(.is-revealed)::before { scale: none; }
   .hero__caret { animation: none; opacity: 1; }
+  .scroll-progress { display: none; }
+  .site-header.is-hidden { translate: none; }
 }
 
 @media (forced-colors: active) {
@@ -929,6 +1175,6 @@
 }
 
 @media print {
-  .site-header, .intro, .nav__scrim, .form { display: none !important; }
+  .site-header, .intro, .nav__scrim, .form, .scroll-progress { display: none !important; }
   body { background: #fff; color: #000; }
 }

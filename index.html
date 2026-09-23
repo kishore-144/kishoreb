@@ -1,1429 +1,553 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <meta charset="UTF-8">
-    <meta name="description" content="Kishore MERN stack developer - A skilled MERN stack developer and machine learning enthusiast creating innovative digital solutions.">
-    <meta name="keywords" content="Kishore, Web Developer, Machine Learning, ReactJS, Python, Portfolio">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kishore Profile</title>
-    <link rel="shortcut icon" type="image/x-icon" href="kk4.png">
-    <style>
-		body,html{
-    margin: 0;
-            padding: 0;
-}
-#introVideoContainer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: black; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-}
-
-#introVideo {
-    max-width: 100%;
-    max-height: 100%;
-}
-#full {
-    display: none;
-}
-
-
-
-
-
-h4{
-    color: rgb(111, 182, 170);
-}
-.first-letter {
-    color: rgb(111, 182, 170);
-}
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins',sans-serif;
-    box-sizing: border-box;
-}
-body{
-    background: #080808;
-    color:#fff;
-}
-#header{
-    width: 100%;
-    height:100vh;
-    background-image: url('kk2.png');
-    background-size: cover;
-}
-.container{
-    padding: 10px 10%;
-}
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    padding-left: 10%;
-    padding-right: 10%;
-    padding-top: 2%;
-}
-
-nav {
-    position: fixed; /* Make the navbar stick to the top */
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: transparent; /* Initial background color */
-    transition: background-color 0.3s; /* Smooth transition */
-    z-index: 1000; /* Ensure it stays on top */
-    border-radius: 5px;
-}
-
-nav.sticky {
-    background-color: rgb(122, 108, 43); /* Change to your desired color when sticky */
-}
-
-
-
-
-.logo{
-    width: 140px;
-
-}
-nav ul li{
-    display: inline-block;
-    list-style:none;
-    margin: 10px 15px;
-}
-nav ul li a{
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    position: relative;
-}
-nav ul li a::after{
-    content:'';
-    width: 0;
-    height: 3px;
-    background: #ff004f;
-    position: absolute;
-    left: 0;
-    bottom: -6px;
-    transition: 0.5s;
-}
-nav ul li a:hover::after{
-    width: 100%;
-}
-.header-text{
-    margin-top: 20%;
-    font-size: 30px;
-}
-.header-text h1{
-    font-size: 60px;
-    margin-top: 20px;
-}
-.header-text h1 span{
-    color: rgb(67, 134, 123);
-}
-
-
-
-
-
-
-
-
-
-
-/* Skills */
-.foriee {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    padding: 20px;
-    padding-left: -20px;
-    color: white;
-    text-align: start;
-}
-
-.leftiee {
-    flex: 1;
-    max-width: 40%;
-    padding-right: 20px;
-}
-
-.rightiee {
-    flex: 1;
-    max-width: 55%;
-}
-
-.subtitle {
-    font-size: 2.5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Extra styling for better spacing and mobile responsiveness */
-@media (max-width: 768px) {
-    .container.adada {
-        flex-direction: column;
-        align-items: center;
-        text-align: start;
-    }
-
-    .leftiee, .rightiee {
-        max-width: 100%;
-        left: -50px;
-        margin-left: -25px;
-    padding-left: -25px;
-    }
-    .rightiee{
-        scale: 0.8;
-        margin-left: -40px;
-    padding-left: -40px;
-    }
-    
-    
-}
-
-
-
-
-
-
-
-
-
-
-
-
-#about{
-    padding: 80px 0;
-    color: #ababab;
-
-}
-.row{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-
-}
-.about-col-1{
-    flex-basis:35%;
-}
-.about-col-1 img{
-    width:100%;
-    border-radius: 15px;
-}
-.about-col-2{
-    flex-basis: 60%;
-
-}
-.subtitle{
-    font-size: 60px;
-    font-weight: 600;
-    color: rgb(67, 134, 123);
-}
-.tabtitles{
-    display: flex;
-    margin: 20px 0 40px;
-}
-.tablinks{
-    margin-right: 50px;
-    font-size: 18px;
-    font-weight: 500;
-    cursor: pointer;
-    position: relative;
-}
-.tablinks::after{
-    content:'';
-    width: 0;
-    height: 3px;
-    background: rgb(67, 134, 123);
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    transition: 0.5s;
-}
-.tablinks.activelink::after{
-    width: 50%;
-}
-.tabcontents ul li{
-    list-style: none;
-    margin: 10px 0;
-}
-.tabcontents ul li span{
-    color:rgb(67, 134, 123);
-}
-.tabcontents{
-    display: none; 
-}
-.tabcontents.activetab{
-    display: block;
-}
-
-
-
-
-
-
-
-
-
-
-#services{
-    padding: 30px 0;
-}
-.services-list{
-    display:grid ;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-.services-list div{
-    background: #262626;
-    padding: 40px;
-    font-size: 13px;
-    font-weight: 300;
-    border-radius: 10px;
-    transition: background 0.5s,transform 0.5s;
-}
-.services-list div h2{
-    font-size: 30px;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
-.services-list div a{
-    text-decoration: none;
-    color:#fff;
-    font-size: 12px;
-    margin-top: 20px;
-    display: inline-block;
-}
-.services-list div:hover{
-    background:rgb(67, 134, 123);
-    transform: translateY(-10px);
-
-}
-
-
-
-
-
-
-
-
-
-
-
-#certi{
-    padding: 50px 0;
-
-}
-.certilist{
-    
-    display:grid ;
-    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-.certic{
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-.certic img{
-    width: 100%;
-    border-radius: 10px ;
-    display: block;
-    transition: transform 3s , filter 0.5s;
-}
-.layer{
-    width: 100%;
-    height: 0;
-    background: linear-gradient(rgba(0,0,0,0.6),rgb(67, 134, 123));
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    padding: 0 40px;
-    text-align: center;
-    transition: height 0.5s;
-}
-.layer h3{
-    font-weight: 500;
-    margin-bottom: 20px;
-}
-.layer a{
-    text-decoration:underline;
-    color:#fff;
-}
-.certic:hover img{
-    transform: scale(1.3);
-    filter: blur(2px);
-}
-.certic:hover .layer{
-    height: 100%;
-}
-
-
-
-
-
-
-
-
-
-
-
-#oduu{
-	text-align: justify;
-}
-#prob1{
-	text-align: justify;
-}
-.roundu{
-    width: 160px;
-    height: 160px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 0px;
-}
-.outer{
-    fill: none;
-    height: 160px;
-    width: 160px;
-    border-radius: 50%;
-    box-shadow: 6px 6px 10px -1px rgba(255, 255, 255, 0.2),
-                -6px -6px 10px -1px rgba(0, 0, 0, 0.15);
-    padding: 10px;
-}
-.inner{
-    fill: none;
-    height: 140px;
-    width: 140px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: inset 4px 4px 6px 3px rgba(255, 255, 255, 0.2),
-
-    inset -4px 4px 6px 1px rgba(0, 0, 0, 0.2),
-    
-    -0.5px -0.5px 0px rgb(0, 0, 0,1),
-    
-    0.5px 0.5px 0px rgba(255, 255, 255, 0.05),
-    
-    0px 12px 10px -10px rgba(255, 255, 255, 0.15);;
-}
-#numberu{
-    font-weight: 600px;
-    color: #555;
-}
-#t20{
-    
-    fill:none;
-    stroke:rgb(67, 134, 123);
-    stroke-width: 10px;
-    stroke-dasharray: 437;
-    stroke-dashoffset: 437;
-    animation: anim1 1s linear forwards;
-}
-#t55{
-    fill:none;
-    stroke:rgb(67, 134, 123);
-    stroke-width: 10px;
-    stroke-dasharray: 437;
-    stroke-dashoffset: 437;
-    animation: anim2 1s linear forwards;
-}
-#t55t{
-    margin-top: -300px;
-    padding-top: -5px;
-    margin-left: px;
-    margin-bottom: 15px;
-}
-#t20t{
-    margin-top: -300px;
-    padding-top: -5px;
-    margin-left: px;
-    margin-bottom: 15px;
-}
-@keyframes anim1{
-    100%{
-        stroke-dashoffset: 357;
-    }
-}
-@keyframes anim2{
-    100%{
-        stroke-dashoffset: 187;
-    }
-}
-
-
-
-
-
-
-.contactleft{
-    flex-basis: 35%;
-}
-.contactright form{
-    width: 100%;
-}
-.contactleft p{
-    margin-top: 30px;
-}
-.contactleft a img{
-    margin-right: 15px;
-    font-size: 25px;
-    color:rgb(67, 134, 123);
-    display: inline-block;
-}
-form input{
-    width: 25%;
-    border: 0;
-    outline: none;
-    background: #262626;
-    padding: 15px;
-    margin: 15px 0;
-    color: #fff;
-    border-radius: 6px;
-    font-size: 18px;
-}
-form textarea{
-    width: 50%;
-    border: 0;
-    outline: none;
-    background: #262626;
-    padding: 15px;
-    margin: 15px 0;
-    color: #fff;
-    border-radius: 6px;
-    font-size: 18px;
-}
-
-
-.btn.btn2{
-    display:inline-block;
-    background: rgb(67, 134, 123);
-    text-decoration: none;
-    color: #fff;
-    border-radius: 5px;
-    height: 25px;
-    text-align: center;
-    align-items: center;
-}
-.hahaha{
-    cursor: pointer;
-    display: flex;
-    background-color:rgb(67, 134, 123);
-    text-decoration: none;
-    color: #fff;
-    float: right; 
-    position: relative; 
-    height: 25px; 
-    width: 130px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    transition: transform 0.5s;
-}
-#summaaa{
-    cursor: pointer;
-    display: flex;
-    border: 0;
-    background-color:rgb(67, 134, 123);
-    text-decoration: none;
-    color: #fff;
-    position: relative; 
-    height: 25px; 
-    width: 130px;
-    text-align: center;
-    align-items: center;
-    justify-content: center;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    transition: transform 0.5s;
-}
-#summaaa:hover{
-    background-color: #ff004f; 
-    color: #fff;
-    transform: scale(1.1);
-}
-.hahaha:hover {
-    background-color: #ff004f; 
-    color: #fff;
-    transform: scale(1.1);
-}
-#heyloos{
-    text-decoration: none;
-    color: #fff;
-    transition:  transform 0.3s linear;
-}
-#heyloos:hover{
-    transform: scale(1.1);
-}
-#heyloose{
-    text-decoration: none;
-    color: #fff;
-    transition:  transform 0.3s linear;
-}
-#heyloose:hover{
-    transform: scale(1.5);
-}
-
-
-
-
-
-nav .fass{
-    display: none;
-}
-/* Achievements Section */
-#achievements {
-    padding: 50px 0;
-    color: #fff;
-}
-
-.achieve-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 40px;
-    margin-top: 50px;
-}
-
-.achieve-item {
-    background: #262626;
-    padding: 30px;
-    border-radius: 10px;
-    transition: background 0.5s, transform 0.5s;
-    text-align: center;
-}
-
-.achieve-item h2 {
-    font-size: 22px;
-    font-weight: 600;
-    margin: 15px 0 10px;
-    color: #fff;
-}
-
-.achieve-item p {
-    font-size: 14px;
-    color: #fff;
-    text-align: justify;
-}
-
-.achieve-item:hover {
-    background: rgb(67, 134, 123);
-    transform: translateY(-10px);
-}
-
-@media only screen and (max-width: 600px) {
-    #achievements {
-        padding: 40px 0;
-    }
-
-    .achieve-item {
-        padding: 20px;
-    }
-
-    .achieve-item h2 {
-        font-size: 18px;
-    }
-
-    .achieve-item p {
-        font-size: 13px;
-    }
-}
-
-@media only screen and (max-width:600px){
-    .about-col-1 {
-        display: none;
-    }
-    #header{
-        background-image:url("kk1.jpg");
-    }
-    .header-text{position: absolute;
-    top: 75%;
-        font-size: 16px;
-    }
-    .header-text h1{
-        font-size: 30px;
-    }
-    nav .fass{
-        display: block;
-        height: 20px;
-        width: 20px;
-    }
-    #booker{
-        margin-left:25px
-    }
-    nav ul{
-        background: rgb(67, 134, 123);
-        position: fixed;
-        top:0;
-        right: -200px;;
-        width: 200px;
-        height: 100vh;
-        padding-top: 50px;
-        z-index: 2;
-        transition: right 0.5s;
-    }
-    nav ul li{
-        display: block;
-        margin: 25px;
-    }
-    nav ul .fas{
-        position: absolute;
-        top:25px;
-        left: 25px;
-        cursor: pointer;
-    }
-    .subtitle{
-        font-size: 40px;
-
-    }
-    .about-col-1, .about-col-2{
-        flex-basis:100%;
-    }
-    .about-col-1{
-        margin-bottom: 30px;
-    }
-    .about-col-2{
-        font-size: 14px;
-    }
-    .tablinks{
-        font-size: 16px;
-        margin-right: 20px;
-    }
-    .contactleft,.contactright{
-        flex-basis: 100%;
-    }
-    .contactright{
-        font-size: 14px;
-    }
-    form input{
-        width: 50%;
-        border: 0;
-        outline: none;
-        background: #262626;
-        padding: 15px;
-        margin: 15px 0;
-        color: #fff;
-        border-radius: 6px;
-        font-size: 18px;
-    }
-    form textarea{
-        width: 100%;
-        border: 0;
-        outline: none;
-        background: #262626;
-        padding: 15px;
-        margin: 15px 0;
-        color: #fff;
-        border-radius: 6px;
-        font-size: 18px;
-    }
-}
-#msgg{
-    color: #61b752;
-    margin-top: -16px;
-    display: block;
-    
-}
-
-.copyright{
-    width: 100%;
-    text-align: center;
-    background: #262626;
-    padding: 15px;
-    border-radius: 5px;
-    font-weight: 300;
-    margin-top: 20px;
-}
-
-
-
-
-
-.adada{
-    font-family: 'Montserrat', sans-serif;
-  background: #080808;
-  color: #f8fafc;
-}
-.Skills {
-  flex-direction: column;
-}
-
-header { 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 1rem;
-  text-align: center;
-  
-  h1 {
-    font-weight: 600;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    
-    @media (min-width: 768px) {
-      font-size: 3rem;
-    }
-  }
-  
-  p {
-    color: #94a3b8;
-    margin-bottom: 0.5rem;
-  }
-  
-  a {
-    color: #7393c1;
-  }
-}
-
-.tag-list {
-  width: 30rem;
-  max-width: 90vw;
-  display: flex;
-  flex-shrink: 0;
-  flex-direction: column;
-  gap: 1rem 0;
-  position: relative;
-  padding: 1.5rem 0;
-  overflow: hidden;
-}
-
-
-
-.loop-slider {
-  .inner2 {
-    display: flex;
-    width: fit-content;
-    animation-name: loop;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: var(--direction);
-    animation-duration: var(--duration);
-  }
-}
-
-.tag {
-  display: flex;
-  align-items: center;
-  gap: 0 0.2rem;
-  color: #e2e8f0;
-  font-size: 0.9rem;
-  background-color: #334155;
-  border-radius: 0.4rem;
-  padding: 0.7rem 1rem;
-  margin-right: 1rem; 
-  box-shadow: 
-    0 0.1rem 0.2rem rgb(0 0 0 / 20%),
-    0 0.1rem 0.5rem rgb(0 0 0 / 30%),
-    0 0.2rem 1.5rem rgb(0 0 0 / 40%);
-  
-  span {
-    font-size: 1.2rem;
-    color: #64748b;
-  }
-}
-
-.fade {
-  pointer-events: none;
-  background: linear-gradient(90deg,#080808, transparent 30%, transparent 70%,#080808);
-  position: absolute;
-  inset: 0;
-}
-
-@keyframes loop {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-
-
-		.progress-circle--kishore-m{
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: conic-gradient(rgb(67, 134, 123) 0% 90%, #080808 90% 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .progress-circle--kishore-m::before {
-            content: '';
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            background-color: #080808;
-            border-radius: 50%;
-        }
-        .progress-circle--kishore-m .progress-value--kishore {
-            position: absolute;
-            color: white;
-        }
-		
-		.progress-circle--kishore-f{
-            position: relative;
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            background: conic-gradient(rgb(67, 134, 123) 0% 50%, #080808 50% 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .progress-circle--kishore-f::before {
-            content: '';
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            background-color: #080808;
-            border-radius: 50%;
-        }
-        .progress-circle--kishore-f .progress-value--kishore {
-            position: absolute;
-            color: white;
-        }
-		
-		
-		.leftiee{
-			text-align:justify;
-		}
-		/* Experience Section — Minimal Timeline Style */
-#experience {
-  padding: 60px 0;
-  color: #fff;
-  position: relative;
-}
-
-.timeline.no-dot {
-  position: relative;
-  margin: 50px auto;
-  padding-left: 30px;
-  border-left: 3px solid rgb(67, 134, 123);
-  width: 80%;
-}
-
-.timeline-content {
-  background: transparent;
-  padding: 10px 25px;
-  border-radius: 8px;
-  transition: all 0.4s ease;
-}
-
-.timeline-content h2 {
-  color: rgb(67, 134, 123);
-  font-size: 22px;
-  margin-bottom: 5px;
-}
-
-.timeline-content h4 {
-  font-size: 16px;
-  color: #bdbdbd;
-  margin-bottom: 10px;
-}
-
-.timeline-content p {
-  color: #e0e0e0;
-  text-align: justify;
-  line-height: 1.6;
-}
-
-/* Hover effect (subtle color fade) */
-.timeline-content:hover {
-  background: rgba(67, 134, 123, 0.15);
-  transform: translateX(5px);
-}
-
-/* Responsive */
-@media only screen and (max-width: 600px) {
-  .timeline.no-dot {
-    width: 90%;
-    padding-left: 20px;
-  }
-
-  .timeline-content {
-    padding: 10px 15px;
-  }
-
-  .timeline-content h2 {
-    font-size: 18px;
-  }
-
-  .timeline-content p {
-    font-size: 13px;
-  }
-}
-
-	</style>
-    
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kishore — Solution Architect &amp; Backend Engineer</title>
+<meta name="description" content="Kishore MERN stack developer - A skilled MERN stack developer and machine learning enthusiast creating innovative digital solutions.">
+<meta name="keywords" content="Kishore, Web Developer, Machine Learning, ReactJS, Python, Portfolio">
+<meta name="author" content="Kishore">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#080808">
+<link rel="canonical" href="https://kishore.aizentechnology.com/">
+
+<!-- Social previews -->
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="Kishore">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://kishore.aizentechnology.com/">
+<meta property="og:title" content="Kishore — Solution Architect &amp; Backend Engineer">
+<meta property="og:description" content="Kishore MERN stack developer - A skilled MERN stack developer and machine learning enthusiast creating innovative digital solutions.">
+<meta property="og:image" content="https://kishore.aizentechnology.com/assets/img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Kishore — B.Tech CSE. Solution Architect, Product Engineer, Backend Engineer.">
+<meta property="profile:first_name" content="Kishore">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Kishore — Solution Architect &amp; Backend Engineer">
+<meta name="twitter:description" content="Kishore MERN stack developer - A skilled MERN stack developer and machine learning enthusiast creating innovative digital solutions.">
+<meta name="twitter:image" content="https://kishore.aizentechnology.com/assets/img/og-card.jpg">
+
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="icon" href="assets/img/favicon-512.png" type="image/png" sizes="512x512">
+<link rel="apple-touch-icon" href="assets/img/favicon-180.png">
+
+<link rel="preload" href="assets/fonts/instrument-sans-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/main.css?v=2026-09-23h">
+
+<script>document.documentElement.classList.add('js');</script>
 </head>
+
 <body>
-    <div id="introVideoContainer">
-        <video id="introVideo" autoplay muted>
-            <source src="Portrait.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- Intro ------------------------------------------------------------------>
+<div class="intro" id="intro" hidden>
+  <video class="intro__video" id="introVideo" muted playsinline preload="none"
+         poster="assets/media/intro-centered-poster.jpg" aria-label="Kishore intro animation">
+    <source src="assets/media/intro-centered.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+  <button class="intro__skip" type="button" id="introSkip">Skip intro</button>
+</div>
+
+<!-- Header ----------------------------------------------------------------->
+<header class="site-header" id="siteHeader">
+  <div class="shell site-header__inner">
+    <a class="brand" href="#top"><span class="brand__initial">K</span>ISHORE</a>
+
+    <button class="nav__toggle" type="button" id="navToggle"
+            aria-expanded="false" aria-controls="navList" aria-label="Open menu">
+      <svg class="nav__icon nav__icon--open" width="20" height="14" viewBox="0 0 20 14" fill="none" aria-hidden="true" focusable="false">
+        <path d="M0 1h20M0 7h20M0 13h20" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
+      <svg class="nav__icon nav__icon--close" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true" focusable="false">
+        <path d="M1 1l14 14M15 1L1 15" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
+    </button>
+
+    <nav id="primaryNav" aria-label="Primary">
+      <ul class="nav__list" id="navList">
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#achievements">Achievements</a></li>
+        <li><a class="nav__link" href="#services">My Work</a></li>
+        <li><a class="nav__link" href="#experience">Experience</a></li>
+        <li><a class="nav__link" href="#target">Goals</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="nav__scrim" id="navScrim" hidden></div>
+
+<main id="main">
+
+<!-- Hero ------------------------------------------------------------------->
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="hero__backdrop" aria-hidden="true">
+    <picture>
+      <source media="(min-width: 56rem)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+      <source type="image/webp" srcset="assets/img/hero-480.webp 480w, assets/img/hero-768.webp 768w, assets/img/hero-1024.webp 1024w" sizes="100vw">
+      <img src="assets/img/hero-768.jpg"
+           srcset="assets/img/hero-480.jpg 480w, assets/img/hero-768.jpg 768w, assets/img/hero-1024.jpg 1024w"
+           sizes="100vw" width="1024" height="1536" alt="" fetchpriority="high" decoding="async">
+    </picture>
+  </div>
+
+  <div class="shell hero__grid">
+    <div class="hero__copy">
+      <h1 class="hero__title" id="heroTitle">
+        Hi, I'm <span class="hero__name">Kishore</span>
+        <span class="hero__position">Solution Architect at <span class="hero__company">Aizen Technology</span></span>
+        <span class="hero__roles">
+          <span class="visually-hidden">Solution Architect, Product Engineer, Backend Engineer</span>
+          <span id="roleText" aria-hidden="true">Solution Architect</span><span class="hero__caret" aria-hidden="true">|</span>
+        </span>
+      </h1>
     </div>
 
-    <div id="full">
-    <div id="header">
-        <div class="container">
-            <nav>
-                <h1 style="font-size: 30px;"><span class="first-letter">K</span>ISHORE</h1>
-                <span style="float: right;"><ul id="sidemenu">
-                    <img class="fass close" onclick="closemenu()" src="menu.png" id="booker">
-                    <li><a href="#about">About</a></li>
-					<li><a href="#achievements">Achievements</a></li>
-                    <li><a href="#services">My Work</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#skillsey">WebDev</a></li>
-                    <li><a href="#certi">Certificates</a></li>
-                    <li><a href="#target">Goals</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                
-                </ul></span>
-                <img class="fass menu" onclick="openmenu()" src="menu2.png">
-            </nav>
-            <div class="header-text">
-                <p>B.Tech CSE</p>
-                <h1>Hi, I'm <span>Kishore</span> <br><span id="cursorr"></span></h1>
-            </div>
+    <figure class="hero__portrait">
+      <picture>
+        <source media="(max-width: 55.99rem)" srcset="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==">
+        <source type="image/webp" srcset="assets/img/hero-480.webp 480w, assets/img/hero-768.webp 768w, assets/img/hero-1024.webp 1024w" sizes="30rem">
+        <img src="assets/img/hero-480.jpg"
+             srcset="assets/img/hero-480.jpg 480w, assets/img/hero-768.jpg 768w, assets/img/hero-1024.jpg 1024w"
+             sizes="30rem" width="1024" height="1536"
+             alt="Kishore in a light shirt, looking up toward his raised hand, in black and white." decoding="async">
+      </picture>
+    </figure>
+  </div>
+</section>
+
+<!-- About ------------------------------------------------------------------>
+<section class="section" id="about" aria-labelledby="aboutTitle">
+  <div class="shell">
+    <header class="section__head">
+      <h2 class="section__title" id="aboutTitle">About Me</h2>
+      <span class="section__index" aria-hidden="true">01 / 06</span>
+    </header>
+
+    <div class="split">
+      <figure class="portrait" data-reveal>
+        <picture>
+          <img src="assets/img/about-portrait-new.png"
+               width="1023" height="1537"
+               alt="Kishore in a grey shirt, looking to one side." loading="lazy" decoding="async">
+        </picture>
+      </figure>
+
+      <div data-reveal>
+        <p class="lede">I’m Kishore, a Computer Science engineering student and startup co-founder passionate about building scalable software, AI-powered solutions, and practical products. I enjoy solving complex technical problems, exploring emerging technologies, and turning ideas into reliable systems that create meaningful value.</p>
+
+        <div class="tabs" data-tabs style="margin-top: var(--sp-7)">
+          <div class="tabs__list" role="tablist" aria-label="About Kishore">
+            <button class="tabs__tab" type="button" role="tab" id="tab-skills"
+                    aria-controls="panel-skills" aria-selected="true">Skills</button>
+            <button class="tabs__tab" type="button" role="tab" id="tab-education"
+                    aria-controls="panel-education" aria-selected="false" tabindex="-1">Education</button>
+            <button class="tabs__tab" type="button" role="tab" id="tab-coding"
+                    aria-controls="panel-coding" aria-selected="false" tabindex="-1">Coding Portfolios</button>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-skills" aria-labelledby="tab-skills" tabindex="0">
+            <dl class="deflist">
+              <div>
+                <dt>Tech Proficiencies</dt>
+                <dd>I excel in programming, with strong proficiency in NestJS, Gcloud, System Architecture, etc</dd>
+              </div>
+              <div>
+                <dt>AI Tools</dt>
+                <dd>Proficient with AI tools such as Claude Code and Codex</dd>
+              </div>
+              <div>
+                <dt>Version Control</dt>
+                <dd>Experienced with version control systems including Git, GitHub and Docker.</dd>
+              </div>
+              <div>
+                <dt>Libraries And Framework</dt>
+                <dd>Familiar with libraries and frameworks such as React, Express, Angular, and ASP.NET.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-education" aria-labelledby="tab-education" tabindex="0" hidden>
+            <dl class="deflist">
+              <div>
+                <dt>10th (2019)</dt>
+                <dd>I completed my 10th board exam with a decent score of 80% at <a class="link-inline" href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</dd>
+              </div>
+              <div>
+                <dt>12th-CS (2021)</dt>
+                <dd>I achieved an 80% score in my 12th board exams, taking into account my performance in Science, Mathematics, and Computer Science at <a class="link-inline" href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</dd>
+              </div>
+              <div>
+                <dt>B.Tech CSE (2025)</dt>
+                <dd>I am graduated as a B.Tech in Computer Science Engineer at <a class="link-inline" href="https://www.sastra.edu">SASTRA Deemed to be University</a>.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-coding" aria-labelledby="tab-coding" tabindex="0" hidden>
+            <dl class="deflist">
+              <div>
+                <dt>HackerRank</dt>
+                <dd>Achieved 5 star golden profile for C++ and Python in <a class="link-inline" href="https://www.hackerrank.com/profile/h225003069">HackerRank</a>.</dd>
+              </div>
+              <div>
+                <dt>LeetCode</dt>
+                <dd>Solved 50+ DSA problems in <a class="link-inline" href="https://leetcode.com/u/kishore_144/">LeetCode</a>.</dd>
+              </div>
+            </dl>
+          </div>
         </div>
-    </div>
-        <br><br><br><br><br>
-
-        <div id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="about-col-1">
-                        <img src="kk3.png">
-                    </div>
-                    <div class="about-col-2">
-                        <br><br><br><br><h1 class="subtitle">About Me</h1>
-                        <p>Full Stack developer with a strong proficiency in JS, C#, Python and a focus on machine learning and deep learning. Skilled in creating dynamic web applications and integrating advanced machine learning models. Passionate about continuous learning and applying innovative solutions to solve complex problems.</p>
-                        <div class="tabtitles">
-                            <p class="tablinks activelink" onclick="opentab('skills')">Skills</p>
-                            <p class="tablinks" onclick="opentab('education')">Education</p>
-                            <p class="tablinks" onclick="opentab('coding')">Coding Portfolios</p>
-                        </div>
-                        <div class="tabcontents activetab" id="skills">
-                            <ul>
-                                <li><span>Programming Languages</span><br>I excel in programming, with a strong proficiency in C, C++, Python,JS, and C#.</li>
-                                <li><span>Tools</span><br>Proficient with tools such as Visual Studio Code, and Visual Studio 2022.</li>
-                                <li><span>Version Control</span><br>Experienced with version control systems including Git, GitHub and Docker.</li>
-                                <li><span>Libraries And Framework</span><br>Familiar with libraries and frameworks such as React, Express, Angular, and ASP.NET.</li>
-                            </ul>
-                        </div>
-                        <div class="tabcontents" id="education">
-                            <ul>
-                                <li><span>10th (2019)</span><br>I completed my 10th board exam with a decent score of 80% at <a style="text-decoration: none; color: #fff;" href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
-                                <li><span>12th-CS (2021)</span><br>I achieved an 80% score in my 12th board exams, taking into account my performance in Science, Mathematics, and Computer Science at <a style="text-decoration: none; color: #fff;"href="https://www.bellschool.in/">Bell Matric Higher Secondary School</a>.</li>
-                                <li><span>B.Tech CSE (2025)</span><br>I am graduated as a B.Tech in Computer Science Engineer at <a style="text-decoration: none; color: #fff;" href="www.sastra.edu">SASTRA Deemed to be University</a>.</li>
-                            </ul>
-                        </div>
-                        <div class="tabcontents" id="coding">
-                            <ul>
-                                <li><span>HackerRank</span><br>Achieved 5 star golden profile for C++ and Python in <a style="text-decoration: none; color: #fff;" href="https://www.hackerrank.com/profile/h225003069">HackerRank</a>.</li>
-                                <li><span>LeetCode</span><br>Solved 50+ DSA problems in <a style="text-decoration: none; color: #fff;" href="https://leetcode.com/u/kishore_144/">LeetCode</a>.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><br><br><br>
-        </div><br><br>
-		        <!-- -----------Achievements----------- -->
-<div id="achievements">
-	<br/><br/><br/>
-  <div class="container">
-    <h1 class="subtitle">Achievements</h1>
-    <div class="achieve-list">
-      <div class="achieve-item">
-	  <i class='bx bx-code-alt' style="font-size: 40px; color: rgb(67, 134, 123);"></i>
-	  <h2>Developed grtr npm Package</h2>
-	  <p>Developed and published an npm package named <b>grtr</b>, enabling secure, fast, and local file transfers across devices in the same network using Node.js. Designed for simplicity and developer efficiency.</p><br/>
-	  <a id="heyloos" href="https://www.npmjs.com/package/grtr" target="_blank">View Package</a>
-	</div>
-
-      <div class="achieve-item">
-        <i class='bx bxs-book' style="font-size: 40px; color: rgb(67, 134, 123);"></i>
-        <h2>Contributed as Book Author</h2>
-        <p>Contributed to Blockchain-Driven AI Framework for Early Human Monkeypox Detection 2024.</p><br/>
-	  <a id="heyloos" href="https://www.routledge.com/Deep-Learning-and-Blockchain-Technology-for-Smart-and-Sustainable-Cities/V-Revathy-Ravi-Thillaiarasu-Kshetri/p/book/9781032748573" target="_blank">View Book</a>
-      </div>
-      <div class="achieve-item">
-        <i class='bx bx-medal' style="font-size: 40px; color: rgb(67, 134, 123);"></i>
-        <h2>5-Star Coder in HackerRank</h2>
-        <p>Earned 5-star gold ratings in Python and C++ programming, showcasing problem-solving and algorithmic proficiency.</p><br/>
-	  <a id="heyloos" href="https://www.hackerrank.com/profile/h225003069" target="_blank">View Rank</a>
       </div>
     </div>
   </div>
-</div>
-<br><br><br><br><br>
-        <!-----------services----------->
-        <div id="services">
-		<br/><br/>
-            <div class="container">
-                <h1 class="subtitle">My Works</h1>
-                <div class="services-list">
-                    <div>
-                        <h2>Decentralized IoT Solution for Smart Agriculture</h2>
-                        <p style="text-align: justify;">A decentralized smart irrigation system using Raspberry Pi and ESP32 nodes with soil moisture sensors and sprinklers. It uses a local network and master-slave setup for real-time monitoring and automated moisture-based control, ensuring privacy, reducing water waste, and removing third-party cloud dependency.</p>
-                        <a id="heyloos" href="https://github.com/kishore-144/IoT_Decentralized.git">Visit Web</a>
-                    </div>
-                    <div>
-                        <h2>GlobalHire Web Portal</h2>
-                        <p style="text-align: justify;">Designed and developed a responsive web platform for Malvquest, an international staffing agency, implementing a dynamic UI/UX framework. Integrated Google Sheets via API for seamless real-time data storage and management, ensuring efficient customer information handling and accessibility. </p>
-                        <a id="heyloos" href="https://dhayananthg.github.io/malvquest/">Visit Web</a>
-                    </div>
-                    <div>
-                        <h2>Human Monkeypox Detection Using ML</h2>
-                        <p style="text-align: justify;">I successfully spearheaded a project to detect monkeypox using the advanced YOLOv(You Only Look Once) machine learning algorithm. We achieved an impressive accuracy rate of nearly 95%, surpassing existing benchmarks</p>
-                        <a id="heyloos" href="https://wa.me/+919345274914/?text=I%20hope%20you're%20doing%20well.%20I%20came%20across%20your%20machine%20learning%20project%20and%20found%20it%20quite%20impressive.%20I%20would%20love%20to%20learn%20more%20about%20your%20approach%2C%20methodologies%2C%20and%20any%20challenges%20you%20faced%20during%20the%20development%20process.%20Looking%20forward%20to%20your%20insights!">Enquire?</a>
-                    </div>
-					
-					
-                </div>
-            </div>
-        </div><br><br><br>
+</section>
 
-<!-- -----------Work Experience----------- -->
-<div id="experience">
-  <div class="container">
-    <h1 class="subtitle">Experience</h1>
-    <div class="timeline no-dot">
-      <div class="timeline-content">
-        <h2>ASP.NET Developer Intern</h2>
-        <h4>Global Software Solutions | August 2025</h4>
-        <p>
-		  Learned ASP.NET development, building efficient web applications and honing my skills in PostgreSQL, C#, and ORMs.
-		  Developed efficient <b>Web APIs</b> for web applications.
-		  Simultaneously explored system design and gained introductory experience in DevOps engineering.
+<!-- Achievements ----------------------------------------------------------->
+<section class="section" id="achievements" aria-labelledby="achievementsTitle">
+  <div class="shell">
+    <header class="section__head">
+      <h2 class="section__title" id="achievementsTitle">Achievements</h2>
+      <span class="section__index" aria-hidden="true">02 / 06</span>
+    </header>
+
+    <ul class="entries" role="list">
+      <li class="entry" data-reveal>
+        <p class="entry__meta">
+          <span class="entry__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+              <path d="M8.5 7.5 3.5 12l5 4.5M15.5 7.5l5 4.5-5 4.5M13.5 4.5l-3 15"/>
+            </svg>
+          </span>
         </p>
+        <div>
+          <h3 class="entry__title">Developed grtr npm Package</h3>
+          <p class="entry__body">Developed and published an npm package named <b>grtr</b>, enabling secure, fast, and local file transfers across devices in the same network using Node.js. Designed for simplicity and developer efficiency.</p>
+          <p class="entry__foot"><a class="link" href="https://www.npmjs.com/package/grtr" target="_blank" rel="noopener noreferrer">View Package</a></p>
+        </div>
+      </li>
+
+      <li class="entry" data-reveal>
+        <p class="entry__meta">
+          <span class="entry__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" focusable="false">
+              <path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H19v15H5.5A1.5 1.5 0 0 0 4 19.5z"/>
+              <path d="M4 19.5A1.5 1.5 0 0 0 5.5 21H19v-3"/>
+            </svg>
+          </span>
+        </p>
+        <div>
+          <h3 class="entry__title">Contributed as Book Author</h3>
+          <p class="entry__body">Contributed to Blockchain-Driven AI Framework for Early Human Monkeypox Detection 2024.</p>
+          <p class="entry__foot"><a class="link" href="https://www.routledge.com/Deep-Learning-and-Blockchain-Technology-for-Smart-and-Sustainable-Cities/V-Revathy-Ravi-Thillaiarasu-Kshetri/p/book/9781032748573" target="_blank" rel="noopener noreferrer">View Book</a></p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- My Works --------------------------------------------------------------->
+<section class="section" id="services" aria-labelledby="servicesTitle">
+  <div class="shell">
+    <header class="section__head">
+      <h2 class="section__title" id="servicesTitle">My Works</h2>
+      <span class="section__index" aria-hidden="true">03 / 06</span>
+    </header>
+
+    <ol class="entries" role="list">
+      <li class="entry" data-reveal>
+        <p class="entry__meta" aria-hidden="true">01</p>
+        <article>
+          <h3 class="entry__title">Decentralized IoT Solution for Smart Agriculture</h3>
+          <p class="entry__body">A decentralized smart irrigation system using Raspberry Pi and ESP32 nodes with soil moisture sensors and sprinklers. It uses a local network and master-slave setup for real-time monitoring and automated moisture-based control, ensuring privacy, reducing water waste, and removing third-party cloud dependency.</p>
+          <p class="entry__foot"><a class="link" href="https://github.com/kishore-144/IoT_Decentralized.git">Visit Web<span class="visually-hidden"> — Decentralized IoT Solution for Smart Agriculture</span></a></p>
+        </article>
+      </li>
+
+      <li class="entry" data-reveal>
+        <p class="entry__meta" aria-hidden="true">02</p>
+        <article>
+          <h3 class="entry__title">GlobalHire Web Portal</h3>
+          <p class="entry__body">Designed and developed a responsive web platform for Malvquest, an international staffing agency, implementing a dynamic UI/UX framework. Integrated Google Sheets via API for seamless real-time data storage and management, ensuring efficient customer information handling and accessibility.</p>
+          <p class="entry__foot"><a class="link" href="https://dhayananthg.github.io/malvquest/">Visit Web<span class="visually-hidden"> — GlobalHire Web Portal</span></a></p>
+        </article>
+      </li>
+
+      <li class="entry" data-reveal>
+        <p class="entry__meta" aria-hidden="true">03</p>
+        <article>
+          <h3 class="entry__title">Human Monkeypox Detection Using ML</h3>
+          <p class="entry__body">I successfully spearheaded a project to detect monkeypox using the advanced YOLOv(You Only Look Once) machine learning algorithm. We achieved an impressive accuracy rate of nearly 95%, surpassing existing benchmarks</p>
+          <p class="entry__foot"><a class="link" href="https://wa.me/+919345274914/?text=I%20hope%20you're%20doing%20well.%20I%20came%20across%20your%20machine%20learning%20project%20and%20found%20it%20quite%20impressive.%20I%20would%20love%20to%20learn%20more%20about%20your%20approach%2C%20methodologies%2C%20and%20any%20challenges%20you%20faced%20during%20the%20development%20process.%20Looking%20forward%20to%20your%20insights!">Enquire?<span class="visually-hidden"> — Human Monkeypox Detection Using ML</span></a></p>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Experience ------------------------------------------------------------->
+<section class="section" id="experience" aria-labelledby="experienceTitle">
+  <div class="shell">
+    <header class="section__head">
+      <h2 class="section__title" id="experienceTitle">Experience</h2>
+      <span class="section__index" aria-hidden="true">04 / 06</span>
+    </header>
+
+    <ol class="timeline" role="list">
+      <li class="timeline__item" data-reveal>
+        <p class="timeline__when">
+          <span class="timeline__date timeline__date--wide"><span class="timeline__year">2025</span> <span class="timeline__month">Aug – Dec</span></span>
+          <span class="timeline__date timeline__date--narrow"><time datetime="2025-08">Aug</time> – <time datetime="2025-12">Dec 2025</time></span>
+        </p>
+        <article class="timeline__body">
+          <h3 class="timeline__role">ASP.NET Developer Intern</h3>
+          <p class="timeline__org">Global Software Solutions</p>
+          <p class="entry__body">Learned ASP.NET development, building efficient web applications and honing my skills in PostgreSQL, C#, and ORMs. Developed efficient <b>Web APIs</b> for web applications. Simultaneously explored system design and gained introductory experience in DevOps engineering.</p>
+        </article>
+      </li>
+
+      <li class="timeline__item timeline__item--current" data-reveal>
+        <p class="timeline__when">
+          <span class="timeline__date timeline__date--wide"><span class="timeline__year">Now</span> <span class="timeline__month">Since <time datetime="2025-12">Dec 2025</time></span></span>
+          <span class="timeline__date timeline__date--narrow"><time datetime="2025-12">Dec 2025</time> – Now</span>
+        </p>
+        <article class="timeline__body">
+          <h3 class="timeline__role">Product Engineer &amp; Solution Architect</h3>
+          <p class="timeline__org">Aizen Technology</p>
+          <p class="entry__body">Designing solution architecture for products from the ground up, turning business requirements into scalable, secure and maintainable systems. Building and shipping product features end to end, with ownership of <b>backend services and APIs</b>, while working closely with stakeholders from early discovery through to deployment.</p>
+        </article>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Near-Term Targets ------------------------------------------------------>
+<section class="section" id="target" aria-labelledby="targetTitle">
+  <div class="shell">
+    <header class="section__head">
+      <h2 class="section__title" id="targetTitle">Near-Term Targets</h2>
+      <span class="section__index" aria-hidden="true">05 / 06</span>
+    </header>
+
+    <div class="split split--even">
+      <div data-reveal>
+        <p class="lede">As an intern, I recognize the critical importance of this year in shaping my future career. Currently, I am focusing on advancing my skills in ASP.NET and AngularJS. By dedicating significant time and effort to mastering these technologies, I aim to enhance my proficiency in modern web development and data-driven decision-making. My goal is to integrate these advanced skills into my upcoming projects, thereby preparing myself for a successful transition into the professional world upon entering the IT industry.</p>
+      </div>
+
+      <div data-reveal>
+        <div class="tabs" data-tabs>
+          <div class="tabs__list" role="tablist" aria-label="Near-term targets">
+            <button class="tabs__tab" type="button" role="tab" id="tab-aspnet"
+                    aria-controls="panel-aspnet" aria-selected="true">ASP.NET</button>
+            <button class="tabs__tab" type="button" role="tab" id="tab-angular"
+                    aria-controls="panel-angular" aria-selected="false" tabindex="-1">Angular</button>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-aspnet" aria-labelledby="tab-aspnet" tabindex="0">
+            <p class="prose">I am actively learning ASP.NET development, building efficient web applications and honing my skills in PostgreSQL, C#, and ORMs. Through hands-on projects and online sources, I am strengthening my expertise in both back-end development and devops while exploring best practices for creating robust, scalable backend and console applications.</p>
+            <div class="meter">
+              <div class="meter__head">
+                <span class="meter__label">Progress:</span>
+                <span class="meter__value">90%</span>
+              </div>
+              <div class="meter__track" role="progressbar" aria-label="ASP.NET progress"
+                   aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <div class="meter__fill" style="--value: 90%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabs__panel" role="tabpanel" id="panel-angular" aria-labelledby="tab-angular" tabindex="0" hidden>
+            <p class="prose">I am currently taking a course on AngularJS, focusing on frontend development and UI design. Through this coursework, I aim to gain hands-on experience in building modern, responsive web applications while enhancing my understanding of efficient UI design principles.</p>
+            <div class="meter">
+              <div class="meter__head">
+                <span class="meter__label">Progress:</span>
+                <span class="meter__value">50%</span>
+              </div>
+              <div class="meter__track" role="progressbar" aria-label="Angular progress"
+                   aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+                <div class="meter__fill" style="--value: 50%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-        <div id="skillsey" class="container adada">
-            <br><br><br><br>
-            <h1 class="subtitle">Skills <h4> in WebDev</h4></h1>
-            <br><br>
-            <div class="foriee">
-    <div class="row">
-        <div class="leftiee">
-            <br>
-            <p>Specialized in building dynamic and responsive web applications, I have developed projects using ASP.NET Core Web API, PostgreSQL, and the MERN stack. My experience spans both front-end and back-end development, enabling me to create secure, scalable, and high-performance solutions. In ASP.NET Core, I’ve implemented key concepts such as authentication, authorization, OAuth2, JWT, logging, password hashing, and full-fledged ORMs for robust API design. Alongside this, my proficiency in the MERN stack—MongoDB, ExpressJS, ReactJS, and NodeJS—allows me to integrate efficient client-server systems. I stay consistently updated with modern technologies to deliver optimized and reliable web solutions.</p>
-        </div>
-        <div class="rightiee">
-    
-    <div class="Skills">
-        <div class="tag-list">
-          <div class="loop-slider" style="--duration:15951ms; --direction:normal;">
-            <div class="inner2">
-              <div class="tag"><span>#</span> ASP.Net</div>
-              <div class="tag"><span>#</span> WebAPI</div>
-              <div class="tag"><span>#</span> JWT</div>
-              <div class="tag"><span>#</span> OAuth2.0</div>
-              <div class="tag"><span>#</span> Pipelines</div>
-              <!-- duplicated content -->
-              <div class="tag"><span>#</span> ASP.Net</div>
-              <div class="tag"><span>#</span> WebAPI</div>
-              <div class="tag"><span>#</span> JWT</div>
-              <div class="tag"><span>#</span> OAuth2.0</div>
-              <div class="tag"><span>#</span> Pipelines</div>
-            </div>
-          </div>
-          <div class="loop-slider" style="--duration:19260ms; --direction:reverse;">
-            <div class="inner2">
-              <div class="tag"><span>#</span> MERN</div>
-              <div class="tag"><span>#</span> ExpressJS</div>
-              <div class="tag"><span>#</span> ReactJS</div>
-              <div class="tag"><span>#</span> Bootsrap</div>
-              <div class="tag"><span>#</span> NodeJS</div>
-              <!-- duplicated content -->
-              <div class="tag"><span>#</span> MERN</div>
-              <div class="tag"><span>#</span> ExpressJS</div>
-              <div class="tag"><span>#</span> ReactJS</div>
-              <div class="tag"><span>#</span> Bootsrap</div>
-              <div class="tag"><span>#</span> NodeJS</div>
-            </div>
-          </div>
-          <div class="loop-slider" style="--duration:10449ms; --direction:normal;">
-            <div class="inner2">
-              <div class="tag"><span>#</span> CSS</div>
-              <div class="tag"><span>#</span> Bootsrap</div>
-              <div class="tag"><span>#</span> React</div>
-              <div class="tag"><span>#</span> UI/UX</div>
-              <div class="tag"><span>#</span> HTML</div>
-              <!-- duplicated content -->
-              <div class="tag"><span>#</span> CSS</div>
-              <div class="tag"><span>#</span> Bootsrap</div>
-              <div class="tag"><span>#</span> React</div>
-              <div class="tag"><span>#</span> UI/UX</div>
-              <div class="tag"><span>#</span> HTML</div>
-            </div>
-          </div>
-          <div class="loop-slider" style="--duration:16638ms; --direction:reverse;">
-            <div class="inner2">
-              <div class="tag"><span>#</span> ORMs</div>
-              <div class="tag"><span>#</span> Postgres</div>
-              <div class="tag"><span>#</span> EFCore</div>
-              <div class="tag"><span>#</span> Dart</div>
-              <div class="tag"><span>#</span> ReactJS</div>
-              <!-- duplicated content -->
-              <div class="tag"><span>#</span> ORMs</div>
-              <div class="tag"><span>#</span> Postgres</div>
-              <div class="tag"><span>#</span> EFCore</div>
-              <div class="tag"><span>#</span> Dart</div>
-              <div class="tag"><span>#</span> ReactJS</div>
-            </div>
-          </div>
-          <div class="loop-slider" style="--duration:15936ms; --direction:normal;">
-            <div class="inner2">
-              <div class="tag"><span>#</span> ReactJS</div>
-              <div class="tag"><span>#</span> React</div>
-              <div class="tag"><span>#</span> MERN</div>
-              <div class="tag"><span>#</span> NodeJS</div>
-              <div class="tag"><span>#</span> ExpressJS</div>
-              <!-- duplicated content -->
-              <div class="tag"><span>#</span> ReactJS</div>
-              <div class="tag"><span>#</span> React</div>
-              <div class="tag"><span>#</span> MERN</div>
-              <div class="tag"><span>#</span> NodeJS</div>
-              <div class="tag"><span>#</span> ExpressJS</div>
-            </div>
-          </div>
-          <div class="fade"></div>
-        </div>
+<!-- Contact ---------------------------------------------------------------->
+<section class="section" id="contact" aria-labelledby="contactTitle">
+  <div class="shell">
+    <header class="section__head">
+      <h2 class="section__title" id="contactTitle">Contact Me</h2>
+      <span class="section__index" aria-hidden="true">06 / 06</span>
+    </header>
+
+    <div class="split">
+      <div data-reveal>
+        <address class="contact__actions">
+          <a class="btn btn--primary" href="cv.pdf" download>Download CV</a>
+          <ul class="channels" role="list">
+            <li><a class="channel" href="tel:+919345274914" aria-label="Phone: +91 93452 74914"><img src="assets/img/icon-phone.png" width="88" height="88" alt="" loading="lazy" decoding="async"></a></li>
+            <li><a class="channel" href="mailto:kishoreb2253@gmail.com" aria-label="Email: kishoreb2253@gmail.com"><img src="assets/img/icon-gmail.png" width="88" height="88" alt="" loading="lazy" decoding="async"></a></li>
+            <li><a class="channel" href="https://www.instagram.com/kishore_144/" aria-label="Kishore on Instagram"><img src="assets/img/icon-instagram.png" width="88" height="88" alt="" loading="lazy" decoding="async"></a></li>
+            <li><a class="channel" href="https://www.linkedin.com/in/kishore-baskar-aizen/" aria-label="Kishore on LinkedIn"><img src="assets/img/icon-linkedin.png" width="88" height="88" alt="" loading="lazy" decoding="async"></a></li>
+          </ul>
+        </address>
       </div>
-    </div></div></div>
-</div> 
-        
-        <!-----------Certi-------->
-        <div id="certi">
-            <div class="container">
-                <h1 class="subtitle">Certificates</h1>
-                <div class="certilist">
-                    <div class="certic">
-                        <img src="c1.jpg">
-                        <div class="layer">
-                            <h3>Web Development</h3>
-                            <p>Successfully completed a task related intern in prodigy.</p><br>
-                            <a id="heyloos" href="c1.pdf">View Certificate</a>
-                        </div>
-                    </div>
-                    <div class="certic">
-                        <img src="c2.jpg">
-                        <div class="layer">
-                            <h3>Complete Python From Scratch</h3>
-                            <p>Successfully completed a course in Udemy, strong in problem solving.</p><br>
-                            <a id="heyloos" href="c2.pdf">View Certificate</a>
-                        </div>
-                    </div>
-                    <div class="certic">
-                        <img src="c3.jpg">
-                        <div class="layer">
-                            <h3>An Introduction to C++</h3>
-                            <p>Successfully completed a course in Udemy, that covers all the introduction and basics in C++.</p><br>
-                            <a id="heyloos" href="c3.pdf">View Certificate</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
-        <!-----------Near-Term Targets-------->
-        <br><br><br><br><br><br>
-        <div id="target">
-		<br/><br/><br/>
-            <div class="container">
-                <h1 class="subtitle">Near-Term Targets</h1><br><br>
-                <p id="prob1">As an intern, I recognize the critical importance of this year in shaping my future career. Currently, I am focusing on advancing my skills in ASP.NET and AngularJS. By dedicating significant time and effort to mastering these technologies, I aim to enhance my proficiency in modern web development and data-driven decision-making. My goal is to integrate these advanced skills into my upcoming projects, thereby preparing myself for a successful transition into the professional world upon entering the IT industry.</p>
-                        <div class="tabtitles">
-                            <p class="tablinks activelink" onclick="opentab('ReactJS')"><b>ASP.NET</b></p>
-                            <p class="tablinks" onclick="opentab('machlea')"><b>Angular</b></p>
-                        </div>
-                        <div class="tabcontents activetab" id="ReactJS">
-                            <p id="oduu">I am actively learning ASP.NET development, building efficient web applications and honing my skills in PostgreSQL, C#, and ORMs. Through hands-on projects and online sources, I am strengthening my expertise in both back-end development and devops while exploring best practices for creating robust, scalable backend and console applications.</p>
-                            <br><p style="color: rgb(145, 177, 171);">Progress:</p><br>
-                            
-                            <div class="progress-circle--kishore-m">
-								<div class="progress-value--kishore">90%</div>
-							</div>
-                        </div>
-                        <div class="tabcontents" id="machlea">
-                            <p id="oduu">I am currently taking a course on AngularJS, focusing on frontend development and UI design. Through this coursework, I aim to gain hands-on experience in building modern, responsive web applications while enhancing my understanding of efficient UI design principles.</p>
-                            <br><p style="color: rgb(145, 177, 171);">Progress:</p>
-                            <br>
-                            <div class="progress-circle--kishore-f">
-								<div class="progress-value--kishore">50%</div>
-							</div>
-                        </div>
-            </div>
-        </div>
-        <br><br><br><br><br><br><br><br>
-        <!-----------Contact-------->
-        <div id="contact">
-		<br/><br/><br/>
-            <div class="container">
-                <div class="roww"><div>
-                    <div class="contactleft">
-                        <h1 class="subtitle">Contact Me</h1><span></span><br><br><a href="cv.pdf" download class="hahaha">Download CV</a>
-                        <span></span><a href="tel:+919345274914"><img style="height: 20px; width: 20px;" id="heyloose" src="telll.png"></a>
-                        <span></span><a href="mailto:kishoreb2253@gmail.com"><img style="height: 20px; width: 20px;" id="heyloose"  src="gmail.png"></a>
-                        <span></span><a href="https://www.instagram.com/kishore_144/"><img style="height: 20px; width: 20px;" id="heyloose" src="ins.png"></a>
-                        <span></span><a href="https://www.linkedin.com/in/kishore-b-a461b02ab/"><img style="height: 20px; width: 20px;" id="heyloose" src="li.png"></a><br>
-                        
-                    <br><br>
-                    <div class="contactright">
+      <div data-reveal>
+        <form class="form" name="submit-to-google-sheet" id="contactForm">
+          <div class="field">
+            <label class="field__label" for="field-name">Your Name</label>
+            <input class="field__control" type="text" id="field-name" name="Name"
+                   placeholder="Your Name" autocomplete="name">
+          </div>
+          <div class="field">
+            <label class="field__label" for="field-email">Your Email</label>
+            <input class="field__control" type="email" id="field-email" name="Email"
+                   placeholder="Your Email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label class="field__label" for="field-message">Your Message</label>
+            <textarea class="field__control" id="field-message" name="Message" rows="6"
+                      placeholder="Your Message" required></textarea>
+          </div>
+          <div class="form__foot">
+            <p class="form__status" id="msgg" role="status" aria-live="polite"></p>
+            <button class="btn btn--primary" type="submit" id="summaaa">Send</button>
+            <p class="form__note">Please wait for 5 sec after pressing send button</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 
-                            <form name="submit-to-google-sheet">
-                                <input type="text" name="Name" placeholder="Your Name"><br><br>
-                                <input type="email" name="Email" placeholder="Your Email" required><br>
-                                <textarea name="Message" rows="6" placeholder="Your Message" required></textarea><br><br><span id="msgg"></span><br>
-                                <button type="submit" id="summaaa">Send</button><p style="font-size: 15px; color:#fff; margin-top: 0px;">Please wait for 5 sec after pressing send button</p>
-                            </form> 
-                            <br>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>Copyright © Kishore</p>
-        </div>
-    <script>
-        var tablinks=document.getElementsByClassName("tablinks");
-        var tabcontents=document.getElementsByClassName("tabcontents");
-        function opentab(tabname){
-            for(tablink of tablinks){
-                tablink.classList.remove("activelink");
-            }
-            for(tabcontent of tabcontents){
-                tabcontent.classList.remove("activetab");
-            }
-            event.currentTarget.classList.add("activelink");
-            document.getElementById(tabname).classList.add("activetab");
+</main>
+
+<footer class="site-footer">
+  <div class="shell"><p>Copyright © Kishore</p></div>
+</footer>
+
+<script src="assets/js/main.js?v=2026-09-23b" defer></script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://kishore.aizentechnology.com/#website",
+      "url": "https://kishore.aizentechnology.com/",
+      "name": "Kishore",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://kishore.aizentechnology.com/#kishore" }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://kishore.aizentechnology.com/#webpage",
+      "url": "https://kishore.aizentechnology.com/",
+      "name": "Kishore — Solution Architect & Backend Engineer",
+      "description": "Kishore MERN stack developer - A skilled MERN stack developer and machine learning enthusiast creating innovative digital solutions.",
+      "inLanguage": "en",
+      "isPartOf": { "@id": "https://kishore.aizentechnology.com/#website" },
+      "about": { "@id": "https://kishore.aizentechnology.com/#kishore" },
+      "mainEntity": { "@id": "https://kishore.aizentechnology.com/#kishore" },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://kishore.aizentechnology.com/assets/img/og-card.jpg",
+        "width": 1200,
+        "height": 630
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://kishore.aizentechnology.com/#kishore",
+      "name": "Kishore",
+      "url": "https://kishore.aizentechnology.com/",
+      "email": "mailto:kishoreb2253@gmail.com",
+      "telephone": "+919345274914",
+      "jobTitle": ["Solution Architect", "Product Engineer", "Backend Engineer"],
+      "worksFor": { "@type": "Organization", "name": "Aizen Technology" },
+      "description": "Full Stack developer with a strong proficiency in JS, C#, Python and a focus on machine learning and deep learning. Skilled in creating dynamic web applications and integrating advanced machine learning models. Passionate about continuous learning and applying innovative solutions to solve complex problems.",
+      "image": "https://kishore.aizentechnology.com/assets/img/about-portrait-1040.jpg",
+      "knowsAbout": ["C", "C++", "Python", "JS", "C#", "Visual Studio Code", "Visual Studio 2022", "Git", "GitHub", "Docker", "React", "Express", "Angular", "ASP.NET", "ASP.NET Core Web API", "PostgreSQL", "MERN", "MongoDB", "ExpressJS", "ReactJS", "NodeJS", "JWT", "OAuth2.0", "ORMs", "EFCore", "Dart", "HTML", "CSS", "UI/UX"],
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "SASTRA Deemed to be University",
+          "url": "https://www.sastra.edu"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Bell Matric Higher Secondary School",
+          "url": "https://www.bellschool.in/"
         }
-    </script>
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbwGy0m4gZMXTgHVidE9hI8zPtloRQjgU6aJxJGwR2H3HpAF1dTQFvvZ5PBYUBCGRg/exec'
-        const form = document.forms['submit-to-google-sheet']
-        const msgg=document.getElementById("msgg")
-        form.addEventListener('submit', e => {
-          e.preventDefault()
-          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-            .then(response => {
-                msgg.innerHTML="Message Sent Successfully"
-                form.reset()
-                setTimeout(function(){
-                    msgg.innerHTML=""
-                },4000)
-                
-            })
-            .catch(error => console.error('Error!', error.message))
-        })
-      </script>
-    <script>
-        var i = 0;
-        var currentTextIndex = 0;
-        var texts = [ 'MERN Stack Developer', 'Backend Engineer', 'ASP.NET Developer']; // Array of texts
-        var speed = 100;
-        var delayBeforeNext = 3000;  // Time to wait before starting the next text
-        var jii = '|';
-        var jii2 = "";
-        var isTyping = true;  // Variable to track if we are typing or deleting
-        
-        function typeWriter() {
-          var txt = texts[currentTextIndex]; // Get the current text
-        
-          if (isTyping) {
-            // Type the text one character at a time
-            if (i < txt.length) {
-              jii2 += txt.charAt(i);
-              document.getElementById("cursorr").innerHTML = jii2 + jii;
-              i++;
-              setTimeout(typeWriter, speed);
-            } else {
-              // Once typing is done, wait for a moment and start removing
-              isTyping = false;
-              setTimeout(typeWriter, delayBeforeNext);
-            }
-          } else {
-            // Remove the text one character at a time
-            if (i > 0) {
-              jii2 = jii2.slice(0, -1);
-              document.getElementById("cursorr").innerHTML = jii2 + jii;
-              i--;
-              setTimeout(typeWriter, speed);
-            } else {
-              // When text is fully removed, move to the next text in the array
-              isTyping = true;
-              currentTextIndex = (currentTextIndex + 1) % texts.length;  // Loop back to the first text after the third one
-              setTimeout(typeWriter, speed);
-            }
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/in/kishore-baskar-aizen/",
+        "https://www.instagram.com/kishore_144/",
+        "https://www.hackerrank.com/profile/h225003069",
+        "https://leetcode.com/u/kishore_144/",
+        "https://github.com/kishore-144"
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://kishore.aizentechnology.com/#works",
+      "name": "My Works",
+      "itemListOrder": "https://schema.org/ItemListOrderAscending",
+      "numberOfItems": 3,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Decentralized IoT Solution for Smart Agriculture",
+            "description": "A decentralized smart irrigation system using Raspberry Pi and ESP32 nodes with soil moisture sensors and sprinklers. It uses a local network and master-slave setup for real-time monitoring and automated moisture-based control, ensuring privacy, reducing water waste, and removing third-party cloud dependency.",
+            "url": "https://github.com/kishore-144/IoT_Decentralized.git",
+            "author": { "@id": "https://kishore.aizentechnology.com/#kishore" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "GlobalHire Web Portal",
+            "description": "Designed and developed a responsive web platform for Malvquest, an international staffing agency, implementing a dynamic UI/UX framework. Integrated Google Sheets via API for seamless real-time data storage and management, ensuring efficient customer information handling and accessibility.",
+            "url": "https://dhayananthg.github.io/malvquest/",
+            "author": { "@id": "https://kishore.aizentechnology.com/#kishore" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "CreativeWork",
+            "name": "Human Monkeypox Detection Using ML",
+            "description": "I successfully spearheaded a project to detect monkeypox using the advanced YOLOv(You Only Look Once) machine learning algorithm. We achieved an impressive accuracy rate of nearly 95%, surpassing existing benchmarks",
+            "author": { "@id": "https://kishore.aizentechnology.com/#kishore" }
           }
         }
-        
-        // Start the typewriter effect as soon as the page loads
-        window.onload = function() {
-          typeWriter();
-        };
-        </script>
-    <script>
-        var sidemenu=document.getElementById("sidemenu");
-        function openmenu(){
-            sidemenu.style.right="0";
-        }
-        function closemenu(){
-            sidemenu.style.right="-200px";
-        }
-        document.addEventListener("DOMContentLoaded", function() {
-    const introVideoContainer = document.getElementById("introVideoContainer");
-    const introVideo = document.getElementById("introVideo");
-    const full = document.getElementById("full");
-
-    // Listen for the end of the video
-    introVideo.addEventListener("ended", function() {
-        introVideoContainer.style.display = "none";
-        full.style.display = "block";
-        document.body.style.overflow = "auto"; // Re-enable scrolling
-    });
-});
-    </script><script>
-    window.onscroll = function() {
-        var navbar = document.querySelector('nav');
-        if (window.scrollY > 5) { // Check if the page is scrolled down more than 5px
-            navbar.classList.add('sticky');
-        } else {
-            navbar.classList.remove('sticky');
-        }
-    };
+      ]
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "name": "grtr",
+      "description": "Developed and published an npm package named grtr, enabling secure, fast, and local file transfers across devices in the same network using Node.js. Designed for simplicity and developer efficiency.",
+      "url": "https://www.npmjs.com/package/grtr",
+      "programmingLanguage": "Node.js",
+      "author": { "@id": "https://kishore.aizentechnology.com/#kishore" }
+    }
+  ]
+}
 </script>
-    </div>
 </body>
 </html>

@@ -1077,48 +1077,6 @@
   .form__status[data-state='error'] { color: #e08c84; }
   .form__note { font-size: var(--text-xs); color: var(--ink-faint); }
 
-  /* -- FAQ ------------------------------------------------------------------
-     Native <details> accordion: works without JS, and answer engines read the
-     full text. The + turns into − when open. */
-  .faq { max-width: 56rem; border-top: 1px solid var(--line); }
-  .faq__item { border-bottom: 1px solid var(--line); }
-  .faq__q {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--sp-5);
-    padding-block: var(--sp-5);
-    cursor: pointer;
-    list-style: none;
-  }
-  .faq__q::-webkit-details-marker { display: none; }
-  .faq__q h3 {
-    font-size: var(--text-md);
-    font-weight: 500;
-    transition: color var(--dur-2) var(--ease);
-  }
-  .faq__q::after {
-    content: '';
-    flex: none;
-    width: 0.875rem;
-    height: 0.875rem;
-    background:
-      linear-gradient(currentColor, currentColor) center / 100% 1.5px no-repeat,
-      linear-gradient(currentColor, currentColor) center / 1.5px 100% no-repeat;
-    color: var(--accent);
-    transition: rotate var(--dur-3) var(--ease-out), background-size var(--dur-3) var(--ease-out);
-  }
-  .faq__item[open] > .faq__q::after {
-    rotate: 180deg;
-    background-size: 100% 1.5px, 1.5px 0;
-  }
-  .faq__q:hover h3,
-  .faq__item[open] > .faq__q h3 { color: var(--accent); }
-  .faq__a { padding-bottom: var(--sp-5); color: var(--ink-muted); max-width: var(--measure); }
-  .faq__a b { color: var(--ink); font-weight: 600; }
-  .faq__item[open] > .faq__a { animation: faq-open var(--dur-3) var(--ease-out); }
-  @keyframes faq-open { from { opacity: 0; translate: 0 -4px; } }
-
   /* -- footer -------------------------------------------------------------- */
   .site-footer {
     padding-block: var(--sp-7);

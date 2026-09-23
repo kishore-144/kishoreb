@@ -73,7 +73,7 @@
         <li><a class="nav__link" href="#achievements">Achievements</a></li>
         <li><a class="nav__link" href="#services">My Work</a></li>
         <li><a class="nav__link" href="#experience">Experience</a></li>
-        <li><a class="nav__link" href="#target">Goals</a></li>
+        <!-- <li><a class="nav__link" href="#target">Goals</a></li> -->
         <li><a class="nav__link" href="#contact">Contact</a></li>
       </ul>
     </nav>
@@ -125,15 +125,18 @@
   <div class="shell">
     <header class="section__head">
       <h2 class="section__title" id="aboutTitle">About Me</h2>
-      <span class="section__index" aria-hidden="true">01 / 06</span>
+      <span class="section__index" aria-hidden="true">01 / 05</span>
     </header>
 
     <div class="split">
       <figure class="portrait" data-reveal>
         <picture>
-          <img src="assets/img/about-portrait-new.png"
-               width="1023" height="1537"
-               alt="Kishore in a grey shirt, looking to one side." loading="lazy" decoding="async">
+          <source type="image/webp" srcset="assets/img/about-kishore-bw-520.webp 520w, assets/img/about-kishore-bw-1020.webp 1020w" sizes="(min-width: 60rem) 28rem, (min-width: 40rem) 36rem, 100vw">
+          <img src="assets/img/about-kishore-bw-520.jpg"
+               srcset="assets/img/about-kishore-bw-520.jpg 520w, assets/img/about-kishore-bw-1020.jpg 1020w"
+               sizes="(min-width: 60rem) 28rem, (min-width: 40rem) 36rem, 100vw"
+               width="1020" height="1532"
+               alt="Kishore in a light shirt, seated outdoors and smiling at the camera, in black and white." loading="lazy" decoding="async">
         </picture>
       </figure>
 
@@ -161,12 +164,12 @@
                 <dd>Proficient with AI tools such as Claude Code and Codex</dd>
               </div>
               <div>
-                <dt>Version Control</dt>
-                <dd>Experienced with version control systems including Git, GitHub and Docker.</dd>
+                <dt>Soft Skills</dt>
+                <dd>Good at leading and handling teams, communication, and problem-solving.</dd>
               </div>
               <div>
-                <dt>Libraries And Framework</dt>
-                <dd>Familiar with libraries and frameworks such as React, Express, Angular, and ASP.NET.</dd>
+                <dt>Version Control</dt>
+                <dd>Experienced with version control systems like Git, Bitbucket and Docker.</dd>
               </div>
             </dl>
           </div>
@@ -211,7 +214,7 @@
   <div class="shell">
     <header class="section__head">
       <h2 class="section__title" id="achievementsTitle">Achievements</h2>
-      <span class="section__index" aria-hidden="true">02 / 06</span>
+      <span class="section__index" aria-hidden="true">02 / 05</span>
     </header>
 
     <ul class="entries" role="list">
@@ -254,7 +257,7 @@
   <div class="shell">
     <header class="section__head">
       <h2 class="section__title" id="servicesTitle">My Works</h2>
-      <span class="section__index" aria-hidden="true">03 / 06</span>
+      <span class="section__index" aria-hidden="true">03 / 05</span>
     </header>
 
     <ol class="entries" role="list">
@@ -293,7 +296,7 @@
   <div class="shell">
     <header class="section__head">
       <h2 class="section__title" id="experienceTitle">Experience</h2>
-      <span class="section__index" aria-hidden="true">04 / 06</span>
+      <span class="section__index" aria-hidden="true">04 / 05</span>
     </header>
 
     <ol class="timeline" role="list">
@@ -324,7 +327,10 @@
   </div>
 </section>
 
-<!-- Near-Term Targets ------------------------------------------------------>
+<!-- Near-Term Targets ------------------------------------------------------
+     Hidden for now. To bring it back: delete this comment's opening and
+     closing lines, uncomment the "Goals" nav link, and renumber the
+     section indices to / 06 (Targets is 05, Contact 06).
 <section class="section" id="target" aria-labelledby="targetTitle">
   <div class="shell">
     <header class="section__head">
@@ -378,13 +384,14 @@
     </div>
   </div>
 </section>
+-->
 
 <!-- Contact ---------------------------------------------------------------->
 <section class="section" id="contact" aria-labelledby="contactTitle">
   <div class="shell">
     <header class="section__head">
       <h2 class="section__title" id="contactTitle">Contact Me</h2>
-      <span class="section__index" aria-hidden="true">06 / 06</span>
+      <span class="section__index" aria-hidden="true">05 / 05</span>
     </header>
 
     <div class="split">
@@ -475,7 +482,7 @@
       "jobTitle": ["Solution Architect", "Product Engineer", "Backend Engineer"],
       "worksFor": { "@type": "Organization", "name": "Aizen Technology" },
       "description": "Full Stack developer with a strong proficiency in JS, C#, Python and a focus on machine learning and deep learning. Skilled in creating dynamic web applications and integrating advanced machine learning models. Passionate about continuous learning and applying innovative solutions to solve complex problems.",
-      "image": "https://kishore.aizentechnology.com/assets/img/about-portrait-1040.jpg",
+      "image": "https://kishore.aizentechnology.com/assets/img/about-kishore-bw-1020.jpg",
       "knowsAbout": ["C", "C++", "Python", "JS", "C#", "Visual Studio Code", "Visual Studio 2022", "Git", "GitHub", "Docker", "React", "Express", "Angular", "ASP.NET", "ASP.NET Core Web API", "PostgreSQL", "MERN", "MongoDB", "ExpressJS", "ReactJS", "NodeJS", "JWT", "OAuth2.0", "ORMs", "EFCore", "Dart", "HTML", "CSS", "UI/UX"],
       "alumniOf": [
         {

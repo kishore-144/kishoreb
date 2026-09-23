@@ -1,0 +1,14 @@
+{
+  "name": "Kishore Baskar — Solution Architect",
+  "short_name": "Kishore",
+  "description": "Portfolio of Kishore Baskar, Solution Architect and Product Engineer at Aizen Technology.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#080808",
+  "theme_color": "#080808",
+  "icons": [
+    { "src": "assets/img/favicon-180.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "assets/img/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

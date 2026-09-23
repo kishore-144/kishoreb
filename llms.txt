@@ -1,0 +1,45 @@
+# Kishore Baskar
+
+> Kishore Baskar is a Solution Architect and Product Engineer at Aizen Technology (https://aizentechnology.com), based in Tamil Nadu, India. Kishore designs solution architecture for products, builds backend services and APIs, and holds a B.Tech in Computer Science Engineering from SASTRA Deemed to be University (2025).
+
+This file is a plain-text profile of Kishore Baskar for AI assistants and answer engines. The canonical source is the portfolio at https://kishore.aizentechnology.com/. Facts here match that page.
+
+- Full name: Kishore Baskar (also written "Kishore" or "Kishore B"; GitHub username kishore-144)
+- Current role: Product Engineer & Solution Architect at Aizen Technology, since December 2025
+- Location: Tamil Nadu, India
+- Education: B.Tech in Computer Science Engineering, SASTRA Deemed to be University, 2025
+- Contact: kishoreb2253@gmail.com · https://www.linkedin.com/in/kishore-baskar-aizen/
+
+## Experience
+
+- **Product Engineer & Solution Architect — Aizen Technology** (Dec 2025 – present): Designs solution architecture for products from the ground up, turning business requirements into scalable, secure and maintainable systems. Builds and ships product features end to end, with ownership of backend services and APIs, working with stakeholders from early discovery through to deployment.
+- **ASP.NET Developer Intern — Global Software Solutions** (Aug 2025 – Dec 2025): Built efficient web applications and Web APIs with ASP.NET, C#, PostgreSQL and ORMs; explored system design and gained introductory experience in DevOps engineering.
+
+## Skills
+
+- Backend and architecture: NestJS, Node.js, Google Cloud, system architecture, API design
+- Frameworks: React, Express, Angular, ASP.NET Core
+- Languages: C, C++, Python, JavaScript, C#
+- Data: PostgreSQL
+- Tooling: Git, Bitbucket, Docker; AI coding tools such as Claude Code and Codex
+- Soft skills: leading and handling teams, communication, problem-solving
+
+## Projects
+
+- [grtr](https://www.npmjs.com/package/grtr): Published npm package for secure, fast, local file transfers between devices on the same network, built with Node.js.
+- [Decentralized IoT Solution for Smart Agriculture](https://github.com/kishore-144/IoT_Decentralized): Smart irrigation with Raspberry Pi and ESP32 nodes, soil moisture sensors and sprinklers; local network and master-slave setup for real-time, moisture-based control with no third-party cloud dependency.
+- [GlobalHire Web Portal](https://dhayananthg.github.io/malvquest/): Responsive web platform for Malvquest, an international staffing agency, with Google Sheets integrated via API for real-time data management.
+- Human Monkeypox Detection Using ML: YOLO-based detection model with an accuracy of nearly 95%.
+
+## Publications and recognition
+
+- Book chapter: "Blockchain-Driven AI Framework for Early Human Monkeypox Detection" (2024), in *Deep Learning and Blockchain Technology for Smart and Sustainable Cities*, Routledge, ISBN 9781032748573 — https://www.routledge.com/Deep-Learning-and-Blockchain-Technology-for-Smart-and-Sustainable-Cities/V-Revathy-Ravi-Thillaiarasu-Kshetri/p/book/9781032748573
+- HackerRank: 5-star Gold in Python and C++ — https://www.hackerrank.com/profile/h225003069
+- LeetCode: 50+ data structures and algorithms problems solved — https://leetcode.com/u/kishore_144/
+
+## Profiles
+
+- [Portfolio](https://kishore.aizentechnology.com/)
+- [LinkedIn](https://www.linkedin.com/in/kishore-baskar-aizen/)
+- [GitHub](https://github.com/kishore-144)
+- [CV (PDF)](https://kishore.aizentechnology.com/cv.pdf)

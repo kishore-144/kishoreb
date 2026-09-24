@@ -657,7 +657,9 @@
   .tabs__tab:hover { color: var(--ink-muted); }
   .tabs__tab[aria-selected='true'] { color: var(--ink); }
   .tabs__tab[aria-selected='true']::after { transform: scaleX(1); }
-  .tabs__panel[hidden] { display: none; }
+  .tabs { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .tabs__panel { grid-row: 2; grid-column: 1; }
+  .tabs__panel[hidden] { display: block; visibility: hidden; }
 
   .deflist { display: grid; gap: var(--sp-5); margin: 0; }
   .deflist > div { display: grid; gap: var(--sp-1); }
@@ -680,6 +682,27 @@
     overflow: hidden;
   }
   .portrait img { width: 100%; }
+
+  /* About: the photo is exactly as tall as the text beside it (cropped to
+     fit) instead of its natural 2:3 height towering over the copy. */
+  @media (min-width: 60rem) {
+    .split--about { align-items: stretch; }
+    .split--about .portrait { min-height: 22rem; }
+    .split--about .portrait picture { position: absolute; inset: 0; }
+    .split--about .portrait img {
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 30%;
+    }
+  }
+  /* Tablets / phones: full width, but capped so it doesn't fill the screen. */
+  @media (max-width: 59.99rem) {
+    .split--about .portrait img {
+      max-height: min(36rem, 110vw);
+      object-fit: cover;
+      object-position: 50% 25%;
+    }
+  }
 
   /* Body copy shared by the timeline entries */
   .entry__body { margin-top: var(--sp-3); color: var(--ink-muted); max-width: var(--measure); }
